@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AutenticadoGuard } from './core/guards/autenticado.guard';
 
 const routes: Routes = [
   {
@@ -11,6 +12,8 @@ const routes: Routes = [
     path: 'conta',
     loadChildren: () =>
       import('./privado/privado.module').then((m) => m.PrivadoModule),
+    canActivate: [AutenticadoGuard],
+    canLoad: [AutenticadoGuard],
   },
   {
     path: '**',

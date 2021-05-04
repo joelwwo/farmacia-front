@@ -11,29 +11,23 @@ export class Mensagens {
     });
   }
 
-  static formatarMensagens(mensagens: object[]): string {
+  static formatarMensagens(mensagens: any[]): string {
     let saida = '<ul id="lista-erros">';
     for (let i = 0; i < mensagens.length; i++) {
-      for (let [key, value] of Object.entries(mensagens[i])) {
-        Object.entries(value).forEach(([key, value]) => {
-          saida += `<li><i class="fas fa-exclamation-circle"></i>${value}</li>`;
-        });
-      }
+      saida += `<li><i class="fas fa-exclamation-circle"></i>${mensagens[i].message}</li>`;
     }
 
     return saida + '</ul>';
   }
 
-  static erro(mensagens: any) {
+  static erro(mensagens: any[]) {
     Swal.fire({
       icon: 'error',
       iconHtml: '',
       position: 'top-end',
       timerProgressBar: true,
-      title: mensagens?.title || 'Ocorreu um erro inesperado',
-      html:
-        mensagens?.errors?.[0]?.detail ||
-        this.formatarMensagens(mensagens.errors as object[]),
+      title: 'Ocorreu um erro',
+      html: this.formatarMensagens(mensagens),
       showConfirmButton: false,
     });
   }

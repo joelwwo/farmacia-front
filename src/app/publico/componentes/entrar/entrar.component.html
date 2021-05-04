@@ -1,1 +1,13 @@
-<p>entrar works!</p>
+<div class="box-login">
+  <form (ngSubmit)="entrar()" [formGroup]="login">
+    <div>
+      <input formControlName="email" type="email" />
+      <small appMensagensErrosForms [control]="login.get('email')"></small>
+    </div>
+    <div>
+      <input formControlName="password" type="password" />
+      <small appMensagensErrosForms [control]="login.get('password')"></small>
+    </div>
+    <button type="submit">Acessar conta</button>
+  </form>
+</div>
