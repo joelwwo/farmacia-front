@@ -9,7 +9,7 @@
         <input formControlName="password" type="password" placeholder="Senha" />
         <small appMensagensErrosForms [control]="login.get('password')"></small>
       </div>
-      <button type="submit">Acessar conta</button>
+      <app-button [label]="'Acessar conta'" [loading]="loading"></app-button>
     </form>
   </div>
 </div>
