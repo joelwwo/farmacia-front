@@ -1,0 +1,49 @@
+input[type='checkbox']
+	width: 24px
+	height: 24px
+	font-weight: 100
+	background-color: marca1
+	border-radius: 10px
+	padding 0
+	& + label
+		display: inline-table
+		position: relative
+		cursor: pointer
+		padding: 0px 10px 0px 10px
+		min-height: 20px
+
+.toggle
+	input[type='checkbox']
+		width 42px
+		height 10px
+		padding 0
+		border none
+		-webkit-appearance none
+		border-radius 30px
+		outline none
+		position relative
+		box-shadow 0 2px 4px 0 rgba(34,66,108,0.21)
+		background-color rgba(34, 66, 108, 0.08)
+		font-size 11px
+		&:before
+			content ''
+			position absolute
+			width 19px
+			height 19px
+			line-height 19px
+			text-align center
+			border-radius 50%
+			box-shadow 0 2px 4px 0 rgba(34,66,108,0.21)
+			background-color #FFF
+			left 0
+			top -4px
+			transition-duration .5s
+		&:checked
+			background-color marca1
+			&:before
+				content ''
+				background-color #FFF
+				left 24px
+				transition-duration .5s
+				color #000
+				box-shadow 0 2px 4px 0 rgba(34,66,108,0.21)
