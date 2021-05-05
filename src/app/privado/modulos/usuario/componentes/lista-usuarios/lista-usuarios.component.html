@@ -1,1 +1,44 @@
-<p>lista-usuarios works!</p>
+<div *ngIf="usuarios.length" class="overflow-x">
+  <table id="table">
+    <thead>
+      <tr>
+        <th>Nome | E-mail</th>
+        <th>CPF</th>
+        <th>Situação</th>
+        <th colspan="2">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios; index as i">
+        <td [routerLink]="'/conta/usuarios/' + usuario.id">
+          <div class="nome">
+            {{ usuario?.name }}
+          </div>
+          <div class="label">{{ usuario?.email }}</div>
+        </td>
+        <td>
+          <div>{{ usuario?.cell_phone || "" | mask: "(00)0 0000-0000" }}</div>
+          <div class="label">
+            {{ usuario?.cpf || "" | mask: "CPF_CNPJ" }}
+          </div>
+        </td>
+        <td>
+          <div class="toggle">
+            <input type="checkbox" [checked]="usuario?.is_active" />
+          </div>
+        </td>
+        <td>
+          <button class="outline-success">Alterar</button>
+        </td>
+        <td>
+          <button
+            [routerLink]="'/conta/usuarios/' + usuario?.id"
+            class="small btn-marrom6"
+          >
+            Add Compra
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
