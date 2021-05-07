@@ -1,6 +1,9 @@
+import { Mensagens } from './../core/Utils/Mensagens';
+import { IUsuario } from './../core/Models/Usuario';
 import { Component, OnInit } from '@angular/core';
 
 import { SubjectService } from '../shared/services/subject/subject.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-privado',
@@ -8,7 +11,9 @@ import { SubjectService } from '../shared/services/subject/subject.service';
   styleUrls: ['./privado.component.styl'],
 })
 export class PrivadoComponent implements OnInit {
-  constructor(private subjectService: SubjectService) {}
+  usuarioLogado: IUsuario | any;
+
+  constructor(private subjectService: SubjectService, private router: Router) {}
 
   ngOnInit(): void {
     this.buscarUsuarioLogado();
@@ -16,7 +21,18 @@ export class PrivadoComponent implements OnInit {
 
   buscarUsuarioLogado(): void {
     this.subjectService.usuario.subscribe((usuario) => {
+      this.usuarioLogado = usuario;
       if (!usuario) this.subjectService.usuarioLogado().subscribe();
     });
+  }
+
+  ngOnDestroy(): void {
+    sessionStorage.clear();
+  }
+
+  sair(): void {
+    //,'Você saiu do sistema',
+    Mensagens.sucesso('', true);
+    this.router.navigate(['/home']);
   }
 }
