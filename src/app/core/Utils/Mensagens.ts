@@ -1,13 +1,16 @@
 import Swal from 'sweetalert2';
 
 export class Mensagens {
-  static sucesso(mensagens: any) {
+  static sucesso(mensagem: string, toast = false) {
     Swal.fire({
       icon: 'success',
-      title: mensagens.title,
-      text: mensagens.message,
-      timer: 1200,
+      title: 'Sucesso',
+      text: mensagem,
+      timer: 2500,
+      toast,
+      showConfirmButton: false,
       timerProgressBar: true,
+      position: 'top-right',
     });
   }
 

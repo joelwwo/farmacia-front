@@ -1,23 +1,42 @@
+@import '../../stylus/cores'
+
 .container
   height 100%
   max-height 100%
   display grid
-  background-color lightgreen
+  background-color marca1
   grid-template-rows 50px 1fr
   grid-auto-columns 250px 1fr
   grid-template-areas "menu-topo menu-topo" "menu-lateral root"
 
 
 .menu-topo
-  background-color lightcoral
+  background-color marca3
+  color #fff
   grid-area menu-topo
+  display flex
+  justify-content space-between
+  align-items center
+  padding 0 16px
 
 .menu-lateral
-  background-color lightgreen
+  padding 25px 0
+  background-color marca1
   grid-area menu-lateral
+  color #fff
+  & .link
+    text-align center
+    padding 5px 0
+    outline none
+    cursor pointer
+  & .active
+    background-color marca5
+    border-top-right-radius 12px
+    border-bottom-right-radius 12px
+    border-left 4px solid marca3
 
 .root
-  background-color lightseagreen
+  background-color luz
   grid-area root
   border-top-left-radius 15px
   padding 25px
@@ -26,3 +45,9 @@
 .notifications
   background-color lightsalmon
   text-align center
+
+@media only screen and (max-width 767px)
+  .container
+    grid-template-rows 50px auto 1fr
+    grid-auto-columns 1fr 1fr
+    grid-template-areas "menu-topo" "menu-lateral" "root"

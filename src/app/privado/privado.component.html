@@ -1,6 +1,18 @@
 <div class="container">
-  <div class="menu-topo">Menu topo</div>
-  <div class="menu-lateral">Menu lateral</div>
+  <div class="menu-topo">
+    <div>Logo</div>
+    <div>
+      Olá, {{ usuarioLogado?.name }} <button (click)="sair()">Sair</button>
+    </div>
+  </div>
+  <div class="menu-lateral">
+    <div routerLink="/conta/usuarios" routerLinkActive="active" class="link">
+      Clientes
+    </div>
+    <div routerLink="/conta/vendas" routerLinkActive="active" class="link">
+      Vendas
+    </div>
+  </div>
   <div class="root">
     <div>
       <router-outlet></router-outlet>
