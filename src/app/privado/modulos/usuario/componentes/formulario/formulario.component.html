@@ -1,0 +1,44 @@
+<div class="box">
+  <div>
+    <form (ngSubmit)="cadastrar()" [formGroup]="cliente">
+      <div>
+        <input formControlName="name" type="text" placeholder="Nome" />
+        <small appMensagensErrosForms [control]="cliente.get('name')"></small>
+      </div>
+      <div>
+        <input
+          formControlName="cpf"
+          type="text"
+          mask="000.000.000-00"
+          placeholder="CPF, opcional"
+        />
+        <small appMensagensErrosForms [control]="cliente.get('cpf')"></small>
+      </div>
+      <div>
+        <input
+          formControlName="email"
+          type="email"
+          placeholder="E-mail, opcional"
+        />
+        <small appMensagensErrosForms [control]="cliente.get('email')"></small>
+      </div>
+      <div>
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="Senha, opcional"
+        />
+        <small
+          appMensagensErrosForms
+          [control]="cliente.get('password')"
+        ></small>
+      </div>
+
+      <app-button
+        [invalido]="cliente.invalid"
+        [label]="'Finalizar cadastro'"
+        [loading]="loading"
+      ></app-button>
+    </form>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { IEndereco } from './Endereco';
 
 export interface IUsuario {
+  id: string;
   name?: string;
   email?: string;
   cpf?: string;

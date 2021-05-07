@@ -6,9 +6,11 @@ import { UsuarioRoutingModule } from './usuario-routing.module';
 
 import { UsuarioComponent } from './usuario.component';
 import { ListaUsuariosComponent } from './componentes/lista-usuarios/lista-usuarios.component';
+import { DetalheComponent } from './componentes/detalhe/detalhe.component';
+import { FormularioComponent } from './componentes/formulario/formulario.component';
 
 @NgModule({
-  declarations: [UsuarioComponent, ListaUsuariosComponent],
+  declarations: [UsuarioComponent, ListaUsuariosComponent, DetalheComponent, FormularioComponent],
   imports: [CommonModule, UsuarioRoutingModule, SharedModule],
 })
 export class UsuarioModule {}
