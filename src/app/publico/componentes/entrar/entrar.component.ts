@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { environment } from 'src/environments/environment';
 import { PublicoService } from '../../services/publico.service';
@@ -43,7 +43,7 @@ export class EntrarComponent implements OnInit {
         sessionStorage.setItem('usuario', JSON.stringify(user));
         this.loading = false;
         this.subjectService.setUsuario(user);
-        this.router.navigate(['conta']);
+        this.router.navigate(['/conta']);
       },
       ({ error }) => {
         Mensagens.erro(error);

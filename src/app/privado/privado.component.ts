@@ -31,7 +31,7 @@ export class PrivadoComponent implements OnInit {
   }
 
   sair(): void {
-    //,'Você saiu do sistema',
+    console.log(location.pathname.slice(1));
     Mensagens.sucesso('', true);
     this.router.navigate(['/home']);
   }
