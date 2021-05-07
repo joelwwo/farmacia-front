@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { PublicoService } from '../../services/publico.service';
 import { Mensagens } from 'src/app/core/Utils/Mensagens';
+import { SubjectService } from './../../../shared/services/subject/subject.service';
 
 @Component({
   selector: 'app-entrar',
@@ -26,7 +27,11 @@ export class EntrarComponent implements OnInit {
     ),
   });
 
-  constructor(private publicoService: PublicoService, private router: Router) {}
+  constructor(
+    private publicoService: PublicoService,
+    private subjectService: SubjectService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -37,6 +42,7 @@ export class EntrarComponent implements OnInit {
         sessionStorage.setItem('token', token.token);
         sessionStorage.setItem('usuario', JSON.stringify(user));
         this.loading = false;
+        this.subjectService.setUsuario(user);
         this.router.navigate(['conta']);
       },
       ({ error }) => {
