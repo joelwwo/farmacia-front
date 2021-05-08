@@ -1,5 +1,10 @@
 <div class="box">
-  <input type="search" placeholder="Pesquisar cliente" />
+  <input
+    #termo
+    (input)="pesquisa(termo.value)"
+    type="search"
+    placeholder="Pesquisar cliente"
+  />
   <button routerLink="formulario" class="outline-success">Novo cliente</button>
 </div>
 

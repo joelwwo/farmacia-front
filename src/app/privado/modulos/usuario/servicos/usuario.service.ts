@@ -15,16 +15,19 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) {}
 
-  buscarUsuarios(): Observable<IUsuario[]> {
-    return this.http.get<IUsuario[]>(this.urlBase + '/user/findBy').pipe(
-      tap(
-        (usuarios) => of(usuarios),
-        ({ error }) => Mensagens.erro(error)
-      )
-    );
+  pesquisarUsuarios(termo: string): Observable<IUsuario[]> {
+    if (!termo.trim()) return of([]);
+    return this.http
+      .get<IUsuario[]>(this.urlBase + '/user/findNameLike/' + termo)
+      .pipe(
+        tap(
+          (usuarios) => of(usuarios),
+          ({ error }) => Mensagens.erro(error)
+        )
+      );
   }
 
-  pesquisarUsuarios(): Observable<IUsuario[]> {
+  buscarUsuarios(): Observable<IUsuario[]> {
     return this.http.get<IUsuario[]>(this.urlBase + '/users').pipe(
       tap(
         (usuarios) => of(usuarios),
