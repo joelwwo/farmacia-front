@@ -1,2 +1,78 @@
-<div>{{ endereco.name }}</div>
-<div>{{ endereco.cep }}</div>
+<div>
+  <form [formGroup]="formEndereco">
+    <div>
+      <input formControlName="name" type="text" placeholder="Nome" />
+      <small
+        appMensagensErrosForms
+        [control]="formEndereco.get('name')"
+      ></small>
+    </div>
+    <div>
+      <input
+        formControlName="cep"
+        type="text"
+        mask="00000-00"
+        placeholder="CEP, opcional"
+      />
+      <small appMensagensErrosForms [control]="formEndereco.get('cep')"></small>
+    </div>
+    <div>
+      <input
+        formControlName="publicPlace"
+        type="text"
+        placeholder="Chácara, lote, bairro etc"
+      />
+      <small
+        appMensagensErrosForms
+        [control]="formEndereco.get('publicPlace')"
+      ></small>
+    </div>
+    <div>
+      <input
+        formControlName="details"
+        type="text"
+        placeholder="Ponto de referência"
+      />
+      <small
+        appMensagensErrosForms
+        [control]="formEndereco.get('details')"
+      ></small>
+    </div>
+
+    <div>
+      <input formControlName="state" type="text" placeholder="Estado" />
+      <small
+        appMensagensErrosForms
+        [control]="formEndereco.get('state')"
+      ></small>
+    </div>
+
+    <div>
+      <input formControlName="city" type="text" placeholder="Cidade" />
+      <small
+        appMensagensErrosForms
+        [control]="formEndereco.get('city')"
+      ></small>
+    </div>
+
+    <div>
+      <input
+        formControlName="location"
+        type="text"
+        placeholder="Localização do Google Maps"
+      />
+      <small
+        appMensagensErrosForms
+        [control]="formEndereco.get('location')"
+      ></small>
+    </div>
+
+    <app-button
+      [invalido]="formEndereco.invalid"
+      [label]="
+        acao == 'cadastrar' ? 'Finalizar cadastro' : 'Atualizar endereço'
+      "
+      [loading]="loading"
+    ></app-button>
+  </form>
+</div>

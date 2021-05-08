@@ -10,5 +10,5 @@ export interface IUsuario {
   active?: boolean;
   created_at?: Date;
   updated_at?: Date;
-  address?: IEndereco[];
+  address: IEndereco[];
 }

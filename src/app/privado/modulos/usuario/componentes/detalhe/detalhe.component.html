@@ -2,7 +2,17 @@
 
 <h2>Endereço(s)</h2>
 
-<app-endereco
-  [endereco]="endereco"
-  *ngFor="let endereco of usuario?.address"
-></app-endereco>
+<ng-container *ngIf="usuario">
+  <div *ngFor="let endereco of usuario.address; let i = index">
+    <div (click)="selecionarEndereco(endereco, i)">{{ endereco.name }}</div>
+  </div>
+
+  <app-modal [mostrarModal]="mostrarModal">
+    <button (click)="fecharModal()" class="btn-fechar">x</button>
+    <app-endereco
+      (fecharModal)="fecharEAtualizarEndereco($event)"
+      [acao]="acao"
+      [endereco]="enderecoSelecionado[0]"
+    ></app-endereco>
+  </app-modal>
+</ng-container>
