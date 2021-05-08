@@ -19,7 +19,6 @@ export class Mensagens {
     for (let i = 0; i < mensagens.length; i++) {
       saida += `<li><i class="fas fa-exclamation-circle"></i>${mensagens[i].message}</li>`;
     }
-
     return saida + '</ul>';
   }
 
