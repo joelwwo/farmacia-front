@@ -1,3 +1,4 @@
+import { IUsuario } from './../../../../../core/Models/Usuario';
 import { Component, OnInit } from '@angular/core';
 
 import { UsuarioService } from '../../servicos/usuario.service';
@@ -8,7 +9,7 @@ import { UsuarioService } from '../../servicos/usuario.service';
   styleUrls: ['./lista-usuarios.component.styl'],
 })
 export class ListaUsuariosComponent implements OnInit {
-  usuarios: any[] = [];
+  usuarios: IUsuario[] = [];
 
   constructor(private usuarioService: UsuarioService) {}
 

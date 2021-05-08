@@ -22,14 +22,13 @@
           <div class="label">{{ usuario?.email }}</div>
         </td>
         <td>
-          <div>{{ usuario?.cell_phone || "" | mask: "(00)0 0000-0000" }}</div>
           <div class="label">
             {{ usuario?.cpf || "" | mask: "CPF_CNPJ" }}
           </div>
         </td>
         <td>
           <div class="toggle">
-            <input type="checkbox" [checked]="usuario?.is_active" />
+            <input type="checkbox" [checked]="usuario?.active" />
           </div>
         </td>
         <td>

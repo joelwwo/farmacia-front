@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Mensagens } from 'src/app/core/Utils/Mensagens';
 
 import { UsuarioService } from './../../servicos/usuario.service';
 
@@ -31,13 +30,9 @@ export class FormularioComponent implements OnInit {
     this.usuarioService.cadastrarUsuario(this.cliente.value).subscribe(
       (cliente) => {
         this.loading = false;
-        Mensagens.sucesso('Cadastro realizado com sucesso!', true);
         this.router.navigate(['/conta/usuarios/' + cliente.id]);
       },
-      ({ error }) => {
-        Mensagens.erro(error);
-        this.loading = false;
-      }
+      (_) => (this.loading = false)
     );
   }
 }
