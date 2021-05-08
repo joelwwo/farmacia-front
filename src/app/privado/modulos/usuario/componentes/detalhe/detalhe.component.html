@@ -1,1 +1,8 @@
-<p>detalhe works!</p>
+<div>{{ usuario?.name }}</div>
+
+<h2>Endereço(s)</h2>
+
+<app-endereco
+  [endereco]="endereco"
+  *ngFor="let endereco of usuario?.address"
+></app-endereco>
