@@ -1,6 +1,11 @@
 <div class="box">
-  <input type="search" placeholder="Pesquisar cliente" />
-  <button routerLink="formulario" class="outline-success">Novo cliente</button>
+  <input
+    #termo
+    (input)="pesquisa(termo.value)"
+    type="search"
+    placeholder="Pesquisar cliente"
+  />
+  <button routerLink="formulario" class="outline-success">Cadastrar</button>
 </div>
 
 <div *ngIf="usuarios.length" class="overflow-x">
@@ -9,8 +14,8 @@
       <tr>
         <th>Nome | E-mail</th>
         <th>CPF</th>
-        <th>Situação</th>
-        <th colspan="2">Ações</th>
+        <th>Ativo</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -22,25 +27,22 @@
           <div class="label">{{ usuario?.email }}</div>
         </td>
         <td>
-          <div>{{ usuario?.cell_phone || "" | mask: "(00)0 0000-0000" }}</div>
           <div class="label">
             {{ usuario?.cpf || "" | mask: "CPF_CNPJ" }}
           </div>
         </td>
         <td>
           <div class="toggle">
-            <input type="checkbox" [checked]="usuario?.is_active" />
+            <input
+              (change)="alterarStatus(usuario, i)"
+              type="checkbox"
+              [checked]="usuario?.active"
+            />
           </div>
         </td>
         <td>
-          <button class="outline-success">Alterar</button>
-        </td>
-        <td>
-          <button
-            [routerLink]="'/conta/usuarios/' + usuario?.id"
-            class="small btn-marrom6"
-          >
-            Add Compra
+          <button [routerLink]="'/conta/usuarios/' + usuario?.id">
+            Detalhes
           </button>
         </td>
       </tr>
