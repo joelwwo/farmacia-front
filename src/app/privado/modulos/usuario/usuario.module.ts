@@ -1,3 +1,4 @@
+import { EnderecoComponent } from './componentes/endereco/endereco.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -10,7 +11,13 @@ import { DetalheComponent } from './componentes/detalhe/detalhe.component';
 import { FormularioComponent } from './componentes/formulario/formulario.component';
 
 @NgModule({
-  declarations: [UsuarioComponent, ListaUsuariosComponent, DetalheComponent, FormularioComponent],
+  declarations: [
+    UsuarioComponent,
+    ListaUsuariosComponent,
+    DetalheComponent,
+    FormularioComponent,
+    EnderecoComponent,
+  ],
   imports: [CommonModule, UsuarioRoutingModule, SharedModule],
 })
 export class UsuarioModule {}
