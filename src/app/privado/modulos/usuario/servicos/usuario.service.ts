@@ -16,6 +16,15 @@ export class UsuarioService {
   constructor(private http: HttpClient) {}
 
   buscarUsuarios(): Observable<IUsuario[]> {
+    return this.http.get<IUsuario[]>(this.urlBase + '/user/findBy').pipe(
+      tap(
+        (usuarios) => of(usuarios),
+        ({ error }) => Mensagens.erro(error)
+      )
+    );
+  }
+
+  pesquisarUsuarios(): Observable<IUsuario[]> {
     return this.http.get<IUsuario[]>(this.urlBase + '/users').pipe(
       tap(
         (usuarios) => of(usuarios),
@@ -29,6 +38,30 @@ export class UsuarioService {
       tap(
         (usuario) => {
           Mensagens.sucesso('Cadastro realizado com sucesso!');
+          return of(usuario);
+        },
+        ({ error }) => Mensagens.erro(error)
+      )
+    );
+  }
+
+  atualizarUsuario(body: object): Observable<IUsuario> {
+    return this.http.put<IUsuario>(this.urlBase + '/users', body).pipe(
+      tap(
+        (usuario) => {
+          Mensagens.sucesso('Dados atualizados');
+          return of(usuario);
+        },
+        ({ error }) => Mensagens.erro(error)
+      )
+    );
+  }
+
+  removerUsuario(id: string): Observable<IUsuario> {
+    return this.http.delete<IUsuario>(this.urlBase + '/users/' + id).pipe(
+      tap(
+        (usuario) => {
+          Mensagens.sucesso('Usuário removido');
           return of(usuario);
         },
         ({ error }) => Mensagens.erro(error)
