@@ -28,7 +28,7 @@ export class UsuarioService {
     return this.http.post<IUsuario>(this.urlBase + '/users', body).pipe(
       tap(
         (usuario) => {
-          Mensagens.sucesso('Cadastro realizado com sucesso!', true);
+          Mensagens.sucesso('Cadastro realizado com sucesso!');
           return of(usuario);
         },
         ({ error }) => Mensagens.erro(error)
