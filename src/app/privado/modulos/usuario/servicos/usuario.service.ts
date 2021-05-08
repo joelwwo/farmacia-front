@@ -48,8 +48,8 @@ export class UsuarioService {
     );
   }
 
-  atualizarUsuario(body: object): Observable<IUsuario> {
-    return this.http.put<IUsuario>(this.urlBase + '/users', body).pipe(
+  atualizarUsuario(body: object, id: string): Observable<IUsuario> {
+    return this.http.put<IUsuario>(this.urlBase + '/users/' + id, body).pipe(
       tap(
         (usuario) => {
           Mensagens.sucesso('Dados atualizados');

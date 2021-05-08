@@ -42,4 +42,10 @@ export class ListaUsuariosComponent implements OnInit {
     );
     this.filtro$.subscribe((res) => (this.usuarios = res));
   }
+
+  alterarStatus(usuario: IUsuario, index: number): void {
+    this.usuarioService
+      .atualizarUsuario({ active: !usuario.active }, usuario.id)
+      .subscribe((usuario) => (this.usuarios[index] = usuario));
+  }
 }

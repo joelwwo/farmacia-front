@@ -5,7 +5,7 @@
     type="search"
     placeholder="Pesquisar cliente"
   />
-  <button routerLink="formulario" class="outline-success">Novo cliente</button>
+  <button routerLink="formulario" class="outline-success">Cadastrar</button>
 </div>
 
 <div *ngIf="usuarios.length" class="overflow-x">
@@ -14,7 +14,7 @@
       <tr>
         <th>Nome | E-mail</th>
         <th>CPF</th>
-        <th>Situação</th>
+        <th>Ativo</th>
         <th></th>
       </tr>
     </thead>
@@ -33,7 +33,11 @@
         </td>
         <td>
           <div class="toggle">
-            <input type="checkbox" [checked]="usuario?.active" />
+            <input
+              (change)="alterarStatus(usuario, i)"
+              type="checkbox"
+              [checked]="usuario?.active"
+            />
           </div>
         </td>
         <td>
