@@ -1,5 +1,5 @@
 <div>
-  <form [formGroup]="formEndereco">
+  <form [formGroup]="formEndereco" (ngSubmit)="orquestarAcao()">
     <div>
       <input formControlName="name" type="text" placeholder="Nome" />
       <small
@@ -11,20 +11,27 @@
       <input
         formControlName="cep"
         type="text"
-        mask="00000-00"
+        mask="00000-000"
         placeholder="CEP, opcional"
       />
       <small appMensagensErrosForms [control]="formEndereco.get('cep')"></small>
     </div>
     <div>
+      <input formControlName="publicPlace" type="text" placeholder="Endereço" />
+      <small
+        appMensagensErrosForms
+        [control]="formEndereco.get('publicPlace')"
+      ></small>
+    </div>
+    <div>
       <input
-        formControlName="publicPlace"
+        formControlName="neighborhood"
         type="text"
         placeholder="Chácara, lote, bairro etc"
       />
       <small
         appMensagensErrosForms
-        [control]="formEndereco.get('publicPlace')"
+        [control]="formEndereco.get('neighborhood')"
       ></small>
     </div>
     <div>
@@ -67,12 +74,14 @@
       ></small>
     </div>
 
-    <app-button
-      [invalido]="formEndereco.invalid"
-      [label]="
-        acao == 'cadastrar' ? 'Finalizar cadastro' : 'Atualizar endereço'
-      "
-      [loading]="loading"
-    ></app-button>
+    <div class="acao">
+      <app-button
+        [invalido]="formEndereco.invalid"
+        [label]="
+          acao == 'cadastrar' ? 'Finalizar cadastro' : 'Atualizar endereço'
+        "
+        [loading]="loading"
+      ></app-button>
+    </div>
   </form>
 </div>

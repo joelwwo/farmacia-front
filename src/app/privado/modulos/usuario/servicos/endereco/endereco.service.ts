@@ -27,8 +27,8 @@ export class EnderecoService {
     );
   }
 
-  atualizarEndereco(body: object): Observable<IEndereco> {
-    return this.http.put<IEndereco>(this.urlBase + '/address', body).pipe(
+  atualizarEndereco(body: object, id = ''): Observable<IEndereco> {
+    return this.http.put<IEndereco>(this.urlBase + '/address/' + id, body).pipe(
       tap(
         (usuario) => {
           Mensagens.sucesso('Endereço atualizado!');

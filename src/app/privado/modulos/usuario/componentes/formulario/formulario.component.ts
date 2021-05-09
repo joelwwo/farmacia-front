@@ -35,4 +35,15 @@ export class FormularioComponent implements OnInit {
       (_) => (this.loading = false)
     );
   }
+
+  alterar() {
+    this.loading = true;
+    this.usuarioService.cadastrarUsuario(this.cliente.value).subscribe(
+      (cliente) => {
+        this.loading = false;
+        this.router.navigate(['/conta/usuarios/' + cliente.id]);
+      },
+      (_) => (this.loading = false)
+    );
+  }
 }

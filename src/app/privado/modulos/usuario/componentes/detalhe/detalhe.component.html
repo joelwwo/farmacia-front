@@ -1,17 +1,39 @@
 <div>{{ usuario?.name }}</div>
 
-<h2>Endereço(s)</h2>
+<div class="endereco-cabecalho">
+  <h2>Endereço(s)</h2>
+  <button (click)="abrirModalEndereco(); acao = 'cadastrar'">Cadastrar</button>
+</div>
 
 <ng-container *ngIf="usuario">
-  <div *ngFor="let endereco of usuario.address; let i = index">
-    <div (click)="selecionarEndereco(endereco, i)">{{ endereco.name }}</div>
+  <div class="box-endereco">
+    <div
+      *ngFor="let endereco of usuario.address; let i = index"
+      class="endereco"
+    >
+      <div class="nome">{{ endereco.name }}</div>
+      <span class="atributo">CEP: </span>{{ endereco.cep }}
+      <span class="atributo">Estado: </span>{{ endereco.state }}
+      <span class="atributo">Cidade: </span>{{ endereco.city }}
+      <span class="atributo">Bairro: </span>{{ endereco.neighborhood }}
+      <span class="atributo">Endereço: </span>{{ endereco.publicPlace }}
+      <span class="atributo">Detalhes: </span>{{ endereco.details }}
+      <span class="atributo">Localização: </span>{{ endereco.location }}
+      <div class="acoes">
+        <button class="remover">Remover</button>
+        <button (click)="selecionarEndereco(endereco, i)" class="editar">
+          Editar
+        </button>
+      </div>
+    </div>
   </div>
 
-  <app-modal [mostrarModal]="mostrarModal">
-    <button (click)="fecharModal()" class="btn-fechar">x</button>
+  <app-modal [mostrarModal]="mostrarModalEndereco">
+    <button (click)="fecharModalEndereco()" class="btn-fechar">x</button>
     <app-endereco
       (fecharModal)="fecharEAtualizarEndereco($event)"
       [acao]="acao"
+      [idUsuario]="usuario.id"
       [endereco]="enderecoSelecionado[0]"
     ></app-endereco>
   </app-modal>

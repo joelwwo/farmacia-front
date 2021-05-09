@@ -1,6 +1,15 @@
-import { IEndereco } from './../../../../../core/Models/Endereco';
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { EnderecoService } from '../../servicos/endereco/endereco.service';
+
+import { IEndereco } from './../../../../../core/Models/Endereco';
 
 @Component({
   selector: 'app-endereco',
@@ -8,12 +17,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./endereco.component.styl'],
 })
 export class EnderecoComponent implements OnInit {
+  @Output() fecharModal: EventEmitter<IEndereco> = new EventEmitter();
+  @Input() idUsuario!: string;
   @Input() endereco!: IEndereco | undefined;
   @Input() acao: 'cadastrar' | 'alterar' = 'cadastrar';
   formEndereco!: FormGroup;
   loading = false;
 
-  constructor() {
+  constructor(private enderecoService: EnderecoService) {
     this.iniciarFormulario();
   }
 
@@ -41,5 +52,38 @@ export class EnderecoComponent implements OnInit {
       state: new FormControl('Tocantins', Validators.required),
       location: new FormControl('', Validators.required),
     });
+  }
+
+  cadastrar() {
+    this.loading = true;
+    const form = this.formEndereco.value;
+    form.user_id = this.idUsuario;
+    this.enderecoService.cadastrarEndereco(form).subscribe(
+      (endereco) => {
+        this.loading = false;
+        this.fecharModal.emit(endereco);
+      },
+      (_) => (this.loading = false)
+    );
+  }
+
+  atualizar() {
+    this.loading = true;
+    const form = this.formEndereco.value;
+    form.user_id = this.idUsuario;
+    this.enderecoService
+      .atualizarEndereco(form, this.endereco?.id || '')
+      .subscribe(
+        (endereco) => {
+          this.loading = false;
+          this.fecharModal.emit(endereco);
+        },
+        (_) => (this.loading = false)
+      );
+  }
+
+  orquestarAcao(): void {
+    if (this.acao == 'alterar') this.atualizar();
+    else this.cadastrar();
   }
 }

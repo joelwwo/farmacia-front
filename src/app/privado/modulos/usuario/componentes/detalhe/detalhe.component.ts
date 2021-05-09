@@ -13,13 +13,12 @@ import { IUsuario } from './../../../../../core/Models/Usuario';
 })
 export class DetalheComponent implements OnInit {
   usuario!: IUsuario;
-  mostrarModal = false;
+  mostrarModalEndereco = false;
   enderecoSelecionado: [IEndereco | undefined, number] = [undefined, 0];
   acao: 'cadastrar' | 'alterar' = 'cadastrar';
 
   constructor(
     private route: ActivatedRoute,
-    private EnderecoService: EnderecoService,
     private usuarioService: UsuarioService
   ) {}
 
@@ -34,22 +33,24 @@ export class DetalheComponent implements OnInit {
       .subscribe((usuario) => (this.usuario = usuario));
   }
 
-  abrirModal(): void {
-    this.mostrarModal = true;
+  abrirModalEndereco(): void {
+    this.mostrarModalEndereco = true;
   }
 
-  fecharModal(): void {
-    this.mostrarModal = false;
+  fecharModalEndereco(): void {
+    this.mostrarModalEndereco = false;
   }
 
   fecharEAtualizarEndereco(event: IEndereco | any): void {
-    this.usuario.address[this.enderecoSelecionado[1]] = event;
-    this.fecharModal();
+    if (this.acao == 'alterar')
+      this.usuario.address[this.enderecoSelecionado[1]] = event;
+    else this.usuario.address.push(event);
+    this.fecharModalEndereco();
   }
 
   selecionarEndereco(endereco: IEndereco, index: number) {
     this.enderecoSelecionado = [endereco, index];
     this.acao = 'alterar';
-    this.abrirModal();
+    this.abrirModalEndereco();
   }
 }
