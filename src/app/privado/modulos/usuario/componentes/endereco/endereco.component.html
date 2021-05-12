@@ -8,7 +8,7 @@
 <span class="atributo">Localização: </span>{{ endereco?.location }}
 <div></div>
 
-<button (click)="abrirFecharModal()">Editar</button>
+<button (click)="abrirModal()">Editar</button>
 <app-button
   [loading]="loading"
   [label]="'Remover'"
@@ -16,5 +16,8 @@
 ></app-button>
 
 <app-modal [mostrarModal]="mostrarModal">
-  <app-form-endereco [endereco]="endereco"></app-form-endereco>
+  <app-form-endereco
+    [endereco]="endereco"
+    (fecharModal)="fecharModal($event)"
+  ></app-form-endereco>
 </app-modal>

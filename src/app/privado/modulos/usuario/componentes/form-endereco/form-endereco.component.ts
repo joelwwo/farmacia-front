@@ -58,7 +58,7 @@ export class FormEnderecoComponent implements OnInit {
         (endereco) => {
           this.loading = false;
           this.endereco = endereco;
-          this.fecharModal.emit();
+          this.fecharModal.emit(endereco);
         },
         (_) => (this.loading = false)
       );

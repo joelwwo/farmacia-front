@@ -1,14 +1,7 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { EnderecoService } from '../../servicos/endereco/endereco.service';
 
-import { IEndereco } from './../../../../../core/Models/Endereco';
+import { IEndereco } from 'src/app/core/Models/Endereco';
 
 @Component({
   selector: 'app-endereco',
@@ -26,19 +19,13 @@ export class EnderecoComponent implements OnInit {
 
   ngOnInit() {}
 
-  /* ngOnChanges(simpleChanges: SimpleChanges): void {
-    if (simpleChanges && simpleChanges.endereco) {
-      this.formEndereco.patchValue(simpleChanges.endereco.currentValue);
-    }
-    if (simpleChanges && simpleChanges.acao) {
-      if (simpleChanges.acao.currentValue == 'cadastrar') {
-        this.formEndereco.reset();
-      }
-    }
-  } */
+  abrirModal(): void {
+    this.mostrarModal = true;
+  }
 
-  abrirFecharModal(): void {
-    this.mostrarModal = !this.mostrarModal;
+  fecharModal(endereco: IEndereco): void {
+    this.mostrarModal = false;
+    this.endereco = endereco;
   }
 
   remover(): void {
