@@ -43,7 +43,7 @@ export class EnderecoService {
     return this.http.delete<IEndereco>(this.urlBase + '/address/' + id).pipe(
       tap(
         (usuario) => {
-          Mensagens.sucesso('Usuário removido');
+          Mensagens.sucesso('Endereço removido');
           return of(usuario);
         },
         ({ error }) => Mensagens.erro(error)
