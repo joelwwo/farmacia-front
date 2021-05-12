@@ -19,12 +19,12 @@ export class EntrarComponent implements OnInit {
   login = new FormGroup({
     email: new FormControl(
       this.homologacao ? 'joeldossantossilva21@gmail.com' : null,
-      Validators.email
+      [Validators.email, Validators.required]
     ),
-    password: new FormControl(
-      this.homologacao ? 'joquebedy' : null,
-      Validators.minLength(6)
-    ),
+    password: new FormControl(this.homologacao ? 'joquebedy' : null, [
+      Validators.minLength(6),
+      Validators.required,
+    ]),
   });
 
   constructor(
