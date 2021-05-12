@@ -7,3 +7,10 @@
 <span class="atributo">Detalhes: </span>{{ endereco.details }}
 <span class="atributo">Localização: </span>{{ endereco.location }}
 <div></div>
+
+<button (click)="abrirFecharModal()">Editar</button>
+<button (click)="remover()">Remover</button>
+
+<app-modal [mostrarModal]="mostarModal">
+  <app-form-endereco [endereco]="endereco"></app-form-endereco>
+</app-modal>

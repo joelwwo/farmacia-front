@@ -16,7 +16,9 @@ export class FormEnderecoComponent implements OnInit {
 
   constructor(private enderecoService: EnderecoService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.iniciarFormulario();
+  }
 
   iniciarFormulario(): void {
     this.formEndereco = new FormGroup({
@@ -29,6 +31,7 @@ export class FormEnderecoComponent implements OnInit {
       state: new FormControl('Tocantins', Validators.required),
       location: new FormControl(''),
     });
+    if (this.endereco) this.formEndereco.patchValue(this.endereco);
   }
 
   cadastrar() {

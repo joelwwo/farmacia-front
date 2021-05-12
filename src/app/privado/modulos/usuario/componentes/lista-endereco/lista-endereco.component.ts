@@ -8,8 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListaEnderecoComponent implements OnInit {
   @Input() enderecos: IEndereco[] = [];
+  mostarModal = false;
 
   constructor() {}
 
   ngOnInit() {}
+
+  abrirFecharModal(): void {
+    this.mostarModal = !this.mostarModal;
+  }
 }

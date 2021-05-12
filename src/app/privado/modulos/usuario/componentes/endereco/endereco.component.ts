@@ -18,10 +18,11 @@ import { IEndereco } from './../../../../../core/Models/Endereco';
 })
 export class EnderecoComponent implements OnInit {
   @Input() endereco!: IEndereco;
+  mostarModal = false;
 
   loading = false;
 
-  constructor() {}
+  constructor(private enderecoService: EnderecoService) {}
 
   ngOnInit() {}
 
@@ -35,4 +36,13 @@ export class EnderecoComponent implements OnInit {
       }
     }
   } */
+
+  abrirFecharModal(): void {
+    this.mostarModal = !this.mostarModal;
+  }
+
+  remover(): void {
+    this.loading = true;
+    this.enderecoService.removerEndereco(this.endereco?.id).subscribe();
+  }
 }

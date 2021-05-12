@@ -1,6 +1,14 @@
+<div class="endereco-cabecalho">
+  <h2>Endereço(s)</h2>
+  <button (click)="abrirFecharModal()">Cadastrar</button>
+</div>
 <div class="box-endereco">
   <app-endereco
     *ngFor="let endereco of enderecos"
     [endereco]="endereco"
   ></app-endereco>
 </div>
+
+<app-modal [mostrarModal]="mostarModal">
+  <app-form-endereco></app-form-endereco>
+</app-modal>

@@ -1,10 +1,5 @@
 <div>{{ usuario?.name }}</div>
 
-<div class="endereco-cabecalho">
-  <h2>Endereço(s)</h2>
-  <button (click)="abrirModalEndereco(); acao = 'cadastrar'">Cadastrar</button>
-</div>
-
 <ng-container *ngIf="usuario">
   <app-lista-endereco [enderecos]="usuario.address"></app-lista-endereco>
 </ng-container>
