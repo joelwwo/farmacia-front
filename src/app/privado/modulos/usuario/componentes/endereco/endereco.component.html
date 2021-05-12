@@ -1,11 +1,11 @@
-<div class="nome">{{ endereco.name }}</div>
-<span class="atributo">CEP: </span>{{ endereco.cep }}
-<span class="atributo">Estado: </span>{{ endereco.state }}
-<span class="atributo">Cidade: </span>{{ endereco.city }}
-<span class="atributo">Bairro: </span>{{ endereco.neighborhood }}
-<span class="atributo">Endereço: </span>{{ endereco.publicPlace }}
-<span class="atributo">Detalhes: </span>{{ endereco.details }}
-<span class="atributo">Localização: </span>{{ endereco.location }}
+<div class="nome">{{ endereco?.name }}</div>
+<span class="atributo">CEP: </span>{{ endereco?.cep }}
+<span class="atributo">Estado: </span>{{ endereco?.state }}
+<span class="atributo">Cidade: </span>{{ endereco?.city }}
+<span class="atributo">Bairro: </span>{{ endereco?.neighborhood }}
+<span class="atributo">Endereço: </span>{{ endereco?.publicPlace }}
+<span class="atributo">Detalhes: </span>{{ endereco?.details }}
+<span class="atributo">Localização: </span>{{ endereco?.location }}
 <div></div>
 
 <button (click)="abrirFecharModal()">Editar</button>

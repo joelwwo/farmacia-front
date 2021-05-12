@@ -6,7 +6,6 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EnderecoService } from '../../servicos/endereco/endereco.service';
 
 import { IEndereco } from './../../../../../core/Models/Endereco';
@@ -18,6 +17,7 @@ import { IEndereco } from './../../../../../core/Models/Endereco';
 })
 export class EnderecoComponent implements OnInit {
   @Input() endereco!: IEndereco;
+  @Output() idEndereco: EventEmitter<string> = new EventEmitter();
   mostrarModal = false;
 
   loading = false;
@@ -43,6 +43,8 @@ export class EnderecoComponent implements OnInit {
 
   remover(): void {
     this.loading = true;
-    this.enderecoService.removerEndereco(this.endereco?.id).subscribe();
+    this.enderecoService
+      .removerEndereco(this.endereco?.id)
+      .subscribe(({ id }) => this.idEndereco.emit(id));
   }
 }

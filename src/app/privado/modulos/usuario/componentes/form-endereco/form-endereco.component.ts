@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { IEndereco } from 'src/app/core/Models/Endereco';
@@ -11,6 +11,8 @@ import { EnderecoService } from '../../servicos/endereco/endereco.service';
 })
 export class FormEnderecoComponent implements OnInit {
   @Input() endereco!: IEndereco;
+  @Input() idUsuario: string = '';
+  @Output() fecharModal: EventEmitter<any> = new EventEmitter();
   formEndereco!: FormGroup;
   loading = false;
 
@@ -37,9 +39,11 @@ export class FormEnderecoComponent implements OnInit {
   cadastrar() {
     this.loading = true;
     const form = this.formEndereco.value;
+    form.user_id = this.idUsuario;
     this.enderecoService.cadastrarEndereco(form).subscribe(
       (endereco) => {
         this.loading = false;
+        this.fecharModal.emit(endereco);
       },
       (_) => (this.loading = false)
     );
@@ -53,6 +57,8 @@ export class FormEnderecoComponent implements OnInit {
       .subscribe(
         (endereco) => {
           this.loading = false;
+          this.endereco = endereco;
+          this.fecharModal.emit();
         },
         (_) => (this.loading = false)
       );
