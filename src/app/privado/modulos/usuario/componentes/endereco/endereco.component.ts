@@ -46,11 +46,11 @@ export class EnderecoComponent implements OnInit {
       name: new FormControl(null, Validators.required),
       cep: new FormControl(null),
       publicPlace: new FormControl(null, Validators.required),
-      details: new FormControl(null, Validators.required),
+      details: new FormControl(null),
       neighborhood: new FormControl(null, Validators.required),
       city: new FormControl('Palmas', Validators.required),
       state: new FormControl('Tocantins', Validators.required),
-      location: new FormControl('', Validators.required),
+      location: new FormControl(''),
     });
   }
 
