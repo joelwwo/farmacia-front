@@ -18,7 +18,7 @@ import { IEndereco } from './../../../../../core/Models/Endereco';
 })
 export class EnderecoComponent implements OnInit {
   @Input() endereco!: IEndereco;
-  mostarModal = false;
+  mostrarModal = false;
 
   loading = false;
 
@@ -38,7 +38,7 @@ export class EnderecoComponent implements OnInit {
   } */
 
   abrirFecharModal(): void {
-    this.mostarModal = !this.mostarModal;
+    this.mostrarModal = !this.mostrarModal;
   }
 
   remover(): void {
