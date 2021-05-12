@@ -43,8 +43,12 @@ export class EnderecoComponent implements OnInit {
 
   remover(): void {
     this.loading = true;
-    this.enderecoService
-      .removerEndereco(this.endereco?.id)
-      .subscribe(({ id }) => this.idEndereco.emit(id));
+    this.enderecoService.removerEndereco(this.endereco?.id).subscribe(
+      ({ id }) => {
+        this.idEndereco.emit(id);
+        this.loading = false;
+      },
+      (_) => (this.loading = false)
+    );
   }
 }

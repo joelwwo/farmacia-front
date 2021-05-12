@@ -10,7 +10,7 @@
         <small appMensagensErrosForms [control]="login.get('password')"></small>
       </div>
       <app-button
-        [invalido]="!login.valid || loading"
+        [invalido]="!login.valid"
         [label]="'Acessar conta'"
         [loading]="loading"
       ></app-button>
