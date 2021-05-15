@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { EnderecoService } from '../../servicos/endereco/endereco.service';
 
 import { IEndereco } from 'src/app/core/Models/Endereco';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-endereco',
@@ -26,6 +27,19 @@ export class EnderecoComponent implements OnInit {
   fecharModal(endereco: IEndereco): void {
     this.mostrarModal = false;
     this.endereco = endereco;
+  }
+
+  removerAlert(): void {
+    Swal.fire({
+      text: 'Deseja mesmo remover esse endereço?',
+      icon: 'question',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Sim, remover',
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) this.remover();
+    });
   }
 
   remover(): void {
