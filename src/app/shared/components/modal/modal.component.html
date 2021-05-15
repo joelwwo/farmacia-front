@@ -1,5 +1,6 @@
 <div *ngIf="mostrarModal" class="modal-overlay">
   <div class="modal">
+    <button (click)="fechar()" class="btn-fechar">x</button>
     <ng-content></ng-content>
   </div>
 </div>

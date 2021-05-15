@@ -36,6 +36,15 @@ export class UsuarioService {
     );
   }
 
+  buscarUsuario(id: string): Observable<IUsuario> {
+    return this.http.get<IUsuario>(this.urlBase + '/users/' + id).pipe(
+      tap(
+        (usuario) => of(usuario),
+        ({ error }) => Mensagens.erro(error)
+      )
+    );
+  }
+
   cadastrarUsuario(body: object): Observable<IUsuario> {
     return this.http.post<IUsuario>(this.urlBase + '/users', body).pipe(
       tap(

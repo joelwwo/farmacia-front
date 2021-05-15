@@ -1,1 +1,8 @@
-<p>detalhe works!</p>
+<div>{{ usuario?.name }}</div>
+
+<ng-container *ngIf="usuario">
+  <app-lista-endereco
+    [enderecos]="usuario.address"
+    [idUsuario]="usuario.id"
+  ></app-lista-endereco>
+</ng-container>

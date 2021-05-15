@@ -28,7 +28,11 @@
         </td>
         <td>
           <div class="label">
-            {{ usuario?.cpf || "" | mask: "CPF_CNPJ" }}
+            {{
+              usuario.cpf
+                ? (usuario.cpf | mask: "999.999.999-99")
+                : "CPF não cadastrado"
+            }}
           </div>
         </td>
         <td>

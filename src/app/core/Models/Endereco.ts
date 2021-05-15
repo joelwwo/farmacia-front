@@ -1,5 +1,5 @@
 export interface IEndereco {
-  id?: string;
+  id: string;
   cep?: string;
   city?: string;
   state?: string;

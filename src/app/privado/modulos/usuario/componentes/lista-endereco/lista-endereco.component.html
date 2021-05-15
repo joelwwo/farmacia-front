@@ -1,0 +1,18 @@
+<div class="endereco-cabecalho">
+  <h2>Endereço(s)</h2>
+  <button (click)="abrirModal()">Cadastrar</button>
+</div>
+<div class="box-endereco">
+  <app-endereco
+    *ngFor="let endereco of enderecos"
+    [endereco]="endereco"
+    (idEndereco)="removerItem($event)"
+  ></app-endereco>
+</div>
+
+<app-modal [mostrarModal]="mostrarModal">
+  <app-form-endereco
+    (fecharModal)="fecharModal($event)"
+    [idUsuario]="idUsuario"
+  ></app-form-endereco>
+</app-modal>

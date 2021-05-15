@@ -1,3 +1,3 @@
-<button [disabled]="invalido">
+<button [disabled]="invalido || loading">
   <img *ngIf="loading" src="./assets/imagens/loading.svg" />{{ label }}
 </button>

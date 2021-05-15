@@ -1,0 +1,23 @@
+<div class="nome">{{ endereco?.name }}</div>
+<span class="atributo">CEP: </span>{{ endereco?.cep }}
+<span class="atributo">Estado: </span>{{ endereco?.state }}
+<span class="atributo">Cidade: </span>{{ endereco?.city }}
+<span class="atributo">Bairro: </span>{{ endereco?.neighborhood }}
+<span class="atributo">Endereço: </span>{{ endereco?.publicPlace }}
+<span class="atributo">Detalhes: </span>{{ endereco?.details }}
+<span class="atributo">Localização: </span>{{ endereco?.location }}
+<div></div>
+
+<button (click)="abrirModal()">Editar</button>
+<app-button
+  [loading]="loading"
+  [label]="'Remover'"
+  (click)="removerAlert()"
+></app-button>
+
+<app-modal [mostrarModal]="mostrarModal">
+  <app-form-endereco
+    [endereco]="endereco"
+    (fecharModal)="fecharModal($event)"
+  ></app-form-endereco>
+</app-modal>
