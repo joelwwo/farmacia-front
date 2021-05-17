@@ -24,9 +24,9 @@ export class EnderecoComponent implements OnInit {
     this.mostrarModal = true;
   }
 
-  fecharModal(endereco: IEndereco): void {
+  fecharModal(endereco?: IEndereco): void {
     this.mostrarModal = false;
-    this.endereco = endereco;
+    if (endereco) this.endereco = endereco;
   }
 
   removerAlert(): void {

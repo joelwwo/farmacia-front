@@ -16,9 +16,9 @@ export class ListaEnderecoComponent implements OnInit {
 
   ngOnInit() {}
 
-  fecharModal(endereco: IEndereco): void {
+  fecharModal(endereco?: IEndereco): void {
     this.mostrarModal = false;
-    this.enderecos.push(endereco);
+    if (endereco) this.enderecos.push(endereco);
   }
 
   abrirModal(): void {

@@ -14,8 +14,9 @@
   [label]="'Remover'"
   (click)="removerAlert()"
 ></app-button>
-
-<app-modal [mostrarModal]="mostrarModal">
+{{ mostrarModal }}
+<app-modal *ngIf="mostrarModal">
+  <button (click)="fecharModal()" class="btn-fechar">x</button>
   <app-form-endereco
     [endereco]="endereco"
     (fecharModal)="fecharModal($event)"

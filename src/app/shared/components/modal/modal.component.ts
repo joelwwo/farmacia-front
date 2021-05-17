@@ -6,16 +6,16 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./modal.component.styl'],
 })
 export class ModalComponent implements OnInit {
-  @Input() mostrarModal: boolean = false;
+  //@Input() mostrarModal!: boolean;
   constructor() {}
 
   ngOnInit() {}
 
-  abrir(): void {
+  /* abrir(): void {
     this.mostrarModal = true;
   }
 
   fechar(): void {
     this.mostrarModal = false;
-  }
+  } */
 }
