@@ -1,17 +1,15 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { UsuarioService } from './../../servicos/usuario.service';
-import { EnderecoService } from './../../servicos/endereco/endereco.service';
-import { IEndereco } from './../../../../../core/Models/Endereco';
-import { IUsuario } from './../../../../../core/Models/Usuario';
+import { UsuarioService } from '../../servicos/usuario.service';
+import { IUsuario } from '../../../../../core/Models/Usuario';
 
 @Component({
-  selector: 'app-detalhe',
-  templateUrl: './detalhe.component.html',
-  styleUrls: ['./detalhe.component.styl'],
+  selector: 'app-detalhe-usuario',
+  templateUrl: './detalhe-usuario.component.html',
+  styleUrls: ['./detalhe-usuario.component.styl'],
 })
-export class DetalheComponent implements OnInit {
+export class DetalheUsuarioComponent implements OnInit {
   usuario!: IUsuario;
 
   constructor(
