@@ -3,11 +3,11 @@
   <button (click)="abrirModal()">Cadastrar</button>
 </div>
 <div class="box-endereco">
-  <app-endereco
+  <app-detalhe-endereco
     *ngFor="let endereco of enderecos"
     [endereco]="endereco"
     (idEndereco)="removerItem($event)"
-  ></app-endereco>
+  ></app-detalhe-endereco>
 </div>
 
 <app-modal *ngIf="mostrarModal">

@@ -3,21 +3,20 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { EnderecoComponent } from './endereco.component';
+import { DetalheEnderecoComponent } from './detalhe-endereco.component';
 
 describe('EnderecoComponent', () => {
-  let component: EnderecoComponent;
-  let fixture: ComponentFixture<EnderecoComponent>;
+  let component: DetalheEnderecoComponent;
+  let fixture: ComponentFixture<DetalheEnderecoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EnderecoComponent ]
-    })
-    .compileComponents();
+      declarations: [DetalheEnderecoComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EnderecoComponent);
+    fixture = TestBed.createComponent(DetalheEnderecoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

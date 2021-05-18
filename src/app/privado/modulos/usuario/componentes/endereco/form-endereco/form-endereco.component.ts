@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { IEndereco } from 'src/app/core/Models/Endereco';
-import { EnderecoService } from '../../servicos/endereco/endereco.service';
+import { EnderecoService } from '../../../servicos/endereco/endereco.service';
 
 @Component({
   selector: 'app-form-endereco',

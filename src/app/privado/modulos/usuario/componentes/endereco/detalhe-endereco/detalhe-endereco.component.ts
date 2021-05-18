@@ -1,15 +1,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { EnderecoService } from '../../servicos/endereco/endereco.service';
+import { EnderecoService } from '../../../servicos/endereco/endereco.service';
 
 import { IEndereco } from 'src/app/core/Models/Endereco';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-endereco',
-  templateUrl: './endereco.component.html',
-  styleUrls: ['./endereco.component.styl'],
+  selector: 'app-detalhe-endereco',
+  templateUrl: './detalhe-endereco.component.html',
+  styleUrls: ['./detalhe-endereco.component.styl'],
 })
-export class EnderecoComponent implements OnInit {
+export class DetalheEnderecoComponent implements OnInit {
   @Input() endereco!: IEndereco;
   @Output() idEndereco: EventEmitter<string> = new EventEmitter();
   mostrarModal = false;
