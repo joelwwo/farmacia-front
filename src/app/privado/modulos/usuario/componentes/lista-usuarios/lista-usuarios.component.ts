@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
-import { UsuarioService } from '../../servicos/usuario.service';
+import { UsuarioService } from '../../servicos/usuario/usuario.service';
 import { IUsuario } from './../../../../../core/Models/Usuario';
 
 @Component({

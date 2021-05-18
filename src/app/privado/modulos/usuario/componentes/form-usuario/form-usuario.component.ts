@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { UsuarioService } from './../../servicos/usuario.service';
+import { UsuarioService } from '../../servicos/usuario/usuario.service';
 
 @Component({
-  selector: 'app-formulario',
-  templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.styl'],
+  selector: 'app-form-usuario',
+  templateUrl: './form-usuario.component.html',
+  styleUrls: ['./form-usuario.component.styl'],
 })
-export class FormularioComponent implements OnInit {
+export class FormUsuarioComponent implements OnInit {
   loading = false;
 
   cliente = new FormGroup({

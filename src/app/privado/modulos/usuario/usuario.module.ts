@@ -7,7 +7,7 @@ import { UsuarioRoutingModule } from './usuario-routing.module';
 
 import { UsuarioComponent } from './usuario.component';
 import { ListaUsuariosComponent } from './componentes/lista-usuarios/lista-usuarios.component';
-import { FormularioComponent } from './componentes/formulario/formulario.component';
+import { FormUsuarioComponent } from './componentes/form-usuario/form-usuario.component';
 import { ListaEnderecoComponent } from './componentes/endereco/lista-endereco/lista-endereco.component';
 import { DetalheEnderecoComponent } from './componentes/endereco/detalhe-endereco/detalhe-endereco.component';
 import { DetalheUsuarioComponent } from './componentes/detalhe-usuario/detalhe-usuario.component';
@@ -17,7 +17,7 @@ import { DetalheUsuarioComponent } from './componentes/detalhe-usuario/detalhe-u
     UsuarioComponent,
     ListaUsuariosComponent,
     DetalheUsuarioComponent,
-    FormularioComponent,
+    FormUsuarioComponent,
     ListaEnderecoComponent,
     DetalheEnderecoComponent,
     FormEnderecoComponent,

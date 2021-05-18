@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
-import { IUsuario } from './../../../../core/Models/Usuario';
-import { Mensagens } from './../../../../core/Utils/Mensagens';
+import { IUsuario } from 'src/app/core/Models/Usuario';
+import { Mensagens } from 'src/app/core/Utils/Mensagens';
 
 @Injectable({
   providedIn: 'root',
