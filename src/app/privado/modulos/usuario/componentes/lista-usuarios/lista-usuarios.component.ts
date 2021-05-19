@@ -15,6 +15,7 @@ export class ListaUsuariosComponent implements OnInit {
   filtro$: Observable<IUsuario[]> | undefined;
   usuarios: IUsuario[] = [];
   private termoBusca = new Subject<string>();
+  mostrarModal = false;
 
   constructor(private usuarioService: UsuarioService) {}
 
@@ -47,5 +48,13 @@ export class ListaUsuariosComponent implements OnInit {
     this.usuarioService
       .atualizarUsuario({ active: !usuario.active }, usuario.id)
       .subscribe((usuario) => (this.usuarios[index] = usuario));
+  }
+
+  abrirModal(): void {
+    this.mostrarModal = true;
+  }
+
+  fecharModal(usuario?: IUsuario): void {
+    this.mostrarModal = false;
   }
 }
