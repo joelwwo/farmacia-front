@@ -1,5 +1,6 @@
 <div>{{ usuario?.name }}</div>
 <button (click)="abrirModal()">Alterar</button>
+<button (click)="removerAlert()">Remover</button>
 
 <ng-container *ngIf="usuario">
   <app-lista-endereco [enderecos]="usuario.address" [idUsuario]="usuario.id">
