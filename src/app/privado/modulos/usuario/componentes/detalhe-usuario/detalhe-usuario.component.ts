@@ -11,6 +11,7 @@ import { UsuarioService } from '../../servicos/usuario/usuario.service';
 })
 export class DetalheUsuarioComponent implements OnInit {
   usuario!: IUsuario;
+  mostrarModal = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,5 +27,14 @@ export class DetalheUsuarioComponent implements OnInit {
     this.usuarioService
       .buscarUsuario(id)
       .subscribe((usuario) => (this.usuario = usuario));
+  }
+
+  abrirModal(): void {
+    this.mostrarModal = true;
+  }
+
+  fecharModal(usuario?: IUsuario): void {
+    this.mostrarModal = false;
+    if (usuario) this.usuario = { ...this.usuario, ...usuario };
   }
 }

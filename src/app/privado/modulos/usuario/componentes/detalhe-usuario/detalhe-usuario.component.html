@@ -1,6 +1,15 @@
 <div>{{ usuario?.name }}</div>
+<button (click)="abrirModal()">Alterar</button>
 
 <ng-container *ngIf="usuario">
   <app-lista-endereco [enderecos]="usuario.address" [idUsuario]="usuario.id">
   </app-lista-endereco>
 </ng-container>
+
+<app-modal *ngIf="mostrarModal">
+  <button (click)="fecharModal()" class="btn-fechar">x</button>
+  <app-form-usuario
+    (fecharModal)="fecharModal($event)"
+    [usuario]="usuario"
+  ></app-form-usuario>
+</app-modal>
