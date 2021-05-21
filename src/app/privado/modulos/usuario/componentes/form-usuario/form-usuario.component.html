@@ -1,6 +1,11 @@
 <form (ngSubmit)="orquestarAcao()" [formGroup]="formUsuario">
   <div>
-    <input formControlName="name" type="text" placeholder="Nome" />
+    <input
+      formControlName="name"
+      type="text"
+      placeholder="Nome"
+      autocomplete="off"
+    />
     <small appMensagensErrosForms [control]="formUsuario.get('name')"></small>
   </div>
   <div>
