@@ -27,7 +27,7 @@ export class CelularService {
     );
   }
 
-  atualizarEndereco(body: object, id = ''): Observable<ICelular> {
+  atualizarCelular(body: object, id = ''): Observable<ICelular> {
     return this.http
       .put<ICelular>(this.urlBase + '/cellphones/' + id, body)
       .pipe(
@@ -41,7 +41,7 @@ export class CelularService {
       );
   }
 
-  removerEndereco(id: string): Observable<ICelular> {
+  removerCelular(id = ''): Observable<ICelular> {
     return this.http.delete<ICelular>(this.urlBase + '/cellphones/' + id).pipe(
       tap(
         (celular) => {
