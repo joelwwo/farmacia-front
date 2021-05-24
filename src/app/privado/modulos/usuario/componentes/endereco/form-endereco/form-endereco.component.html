@@ -63,10 +63,11 @@
       [control]="formEndereco.get('location')"
     ></small>
   </div>
-
-  <app-button
-    [invalido]="formEndereco.invalid"
-    [label]="endereco ? 'Atualizar endereço' : 'Finalizar cadastro'"
-    [loading]="loading"
-  ></app-button>
+  <div class="center">
+    <app-button
+      [invalido]="formEndereco.invalid"
+      [label]="endereco ? 'Atualizar endereço' : 'Finalizar cadastro'"
+      [loading]="loading"
+    ></app-button>
+  </div>
 </form>

@@ -21,7 +21,7 @@ export class EntrarComponent implements OnInit {
       this.homologacao ? 'joeldossantossilva21@gmail.com' : null,
       [Validators.email, Validators.required]
     ),
-    password: new FormControl(this.homologacao ? 'joquebedy' : null, [
+    password: new FormControl(this.homologacao ? 'Joel1234' : null, [
       Validators.minLength(6),
       Validators.required,
     ]),

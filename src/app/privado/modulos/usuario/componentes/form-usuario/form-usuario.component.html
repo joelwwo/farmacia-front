@@ -37,9 +37,13 @@
     ></small>
   </div>
 
-  <app-button
-    [invalido]="formUsuario.invalid"
-    [label]="usuario ? 'Alterar' : 'Finalizar cadastro'"
-    [loading]="loading"
-  ></app-button>
+  <div>
+    <div class="center">
+      <app-button
+        [invalido]="formUsuario.invalid"
+        [label]="usuario ? 'Alterar' : 'Finalizar cadastro'"
+        [loading]="loading"
+      ></app-button>
+    </div>
+  </div>
 </form>
