@@ -1,1 +1,19 @@
-<p>lista-celular works!</p>
+<div class="endereco-cabecalho">
+  <h2>Contato(s)</h2>
+  <button (click)="abrirModal()">Cadastrar celular</button>
+</div>
+<div class="box-endereco">
+  <app-detalhe-celular
+    *ngFor="let celular of celulares"
+    [celular]="celular"
+    (idCelular)="removerItem($event)"
+  ></app-detalhe-celular>
+</div>
+
+<app-modal *ngIf="mostrarModal">
+  <button (click)="fecharModal()" class="btn-fechar">x</button>
+  <app-form-celular
+    (fecharModal)="fecharModal($event)"
+    [idUsuario]="idUsuario"
+  ></app-form-celular>
+</app-modal>
