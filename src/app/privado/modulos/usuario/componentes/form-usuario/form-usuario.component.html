@@ -26,6 +26,14 @@
     <small appMensagensErrosForms [control]="formUsuario.get('email')"></small>
   </div>
   <div>
+    <select id="tipo" formControlName="type">
+      <option *ngFor="let tipo of tipos" [value]="tipo">
+        {{ tipo | tipoUsuario }}
+      </option>
+    </select>
+    <small appMensagensErrosForms [control]="formUsuario.get('type')"></small>
+  </div>
+  <div>
     <input
       formControlName="password"
       type="password"

@@ -16,6 +16,8 @@ export class FormUsuarioComponent implements OnInit {
   loading = false;
   formUsuario!: FormGroup;
 
+  tipos = ['user', 'master', 'query', 'edit'];
+
   constructor(private usuarioService: UsuarioService, private router: Router) {}
 
   ngOnInit(): void {
