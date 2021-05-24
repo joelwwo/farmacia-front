@@ -1,3 +1,4 @@
+import { ICelular } from './Celular';
 import { IEndereco } from './Endereco';
 
 export interface IUsuario {
@@ -11,4 +12,5 @@ export interface IUsuario {
   created_at?: Date;
   updated_at?: Date;
   address: IEndereco[];
+  cellphone: ICelular[];
 }

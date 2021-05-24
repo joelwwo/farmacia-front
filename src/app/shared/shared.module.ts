@@ -5,10 +5,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { MensagensErrosFormsDirective } from './directives/mensagens-erros-forms.directive';
 import { CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
+import { CustomCurrencyMaskConfig } from '../core/Models/ConfMascara';
 
 /* Pipe(s) */
 import { ValorMoedaPipe } from './pipes/valor-moeda.pipe';
-import { CustomCurrencyMaskConfig } from '../core/Models/ConfMascara';
+import { TipoUsuarioPipe } from './pipes/tipo-usuario.pipe';
 
 // componentes
 import { ModalComponent } from './components/modal/modal.component';
@@ -22,6 +23,7 @@ import { ButtonComponent } from './components/modal/button/button.component';
     ButtonComponent,
     /* Pipe(s) */
     ValorMoedaPipe,
+    TipoUsuarioPipe,
   ],
   imports: [
     CommonModule,
@@ -42,6 +44,7 @@ import { ButtonComponent } from './components/modal/button/button.component';
     ButtonComponent,
     /* Pipe(s) */
     ValorMoedaPipe,
+    TipoUsuarioPipe,
   ],
   providers: [
     { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },

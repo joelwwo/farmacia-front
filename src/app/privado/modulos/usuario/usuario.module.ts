@@ -11,6 +11,9 @@ import { FormUsuarioComponent } from './componentes/form-usuario/form-usuario.co
 import { ListaEnderecoComponent } from './componentes/endereco/lista-endereco/lista-endereco.component';
 import { DetalheEnderecoComponent } from './componentes/endereco/detalhe-endereco/detalhe-endereco.component';
 import { DetalheUsuarioComponent } from './componentes/detalhe-usuario/detalhe-usuario.component';
+import { FormCelularComponent } from './componentes/celular/form-celular/form-celular.component';
+import { DetalheCelularComponent } from './componentes/celular/detalhe-celular/detalhe-celular.component';
+import { ListaCelularComponent } from './componentes/celular/lista-celular/lista-celular.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { DetalheUsuarioComponent } from './componentes/detalhe-usuario/detalhe-u
     ListaEnderecoComponent,
     DetalheEnderecoComponent,
     FormEnderecoComponent,
+    FormCelularComponent,
+    DetalheCelularComponent,
+    ListaCelularComponent,
   ],
   imports: [CommonModule, UsuarioRoutingModule, SharedModule],
 })

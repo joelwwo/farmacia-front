@@ -5,6 +5,7 @@
 <ng-container *ngIf="usuario">
   <app-lista-endereco [enderecos]="usuario.address" [idUsuario]="usuario.id">
   </app-lista-endereco>
+  <app-lista-celular [celulares]="usuario.cellphone"></app-lista-celular>
 </ng-container>
 
 <app-modal *ngIf="mostrarModal">

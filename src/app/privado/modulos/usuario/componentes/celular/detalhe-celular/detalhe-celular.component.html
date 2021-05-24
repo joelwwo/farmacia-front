@@ -1,0 +1,16 @@
+<div class="nome">{{ celular?.description }}</div>
+<div class="nome">{{ celular?.number }}</div>
+
+<button (click)="abrirModal()">Editar celular</button>
+<app-button
+  [loading]="loading"
+  [label]="'Remover'"
+  (click)="removerAlert()"
+></app-button>
+<app-modal *ngIf="mostrarModal">
+  <button (click)="fecharModal()" class="btn-fechar">x</button>
+  <app-form-celular
+    [celular]="celular"
+    (fecharModal)="fecharModal($event)"
+  ></app-form-celular>
+</app-modal>

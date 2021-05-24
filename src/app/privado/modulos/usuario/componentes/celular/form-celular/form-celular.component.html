@@ -1,0 +1,30 @@
+<form [formGroup]="formCelular" (ngSubmit)="orquestarAcao()">
+  <div>
+    <input
+      formControlName="description"
+      type="text"
+      placeholder="Descrição, exemplo: Claro, Oi ..."
+    />
+    <small
+      appMensagensErrosForms
+      [control]="formCelular.get('description')"
+    ></small>
+  </div>
+  <div>
+    <input
+      formControlName="number"
+      type="text"
+      mask="(00) 0 0000-0000"
+      placeholder="(00) 0 0000-0000"
+    />
+    <small appMensagensErrosForms [control]="formCelular.get('number')"></small>
+  </div>
+
+  <div class="center">
+    <app-button
+      [invalido]="formCelular.invalid"
+      [label]="celular ? 'Atualizar contato' : 'Finalizar cadastro'"
+      [loading]="loading"
+    ></app-button>
+  </div>
+</form>
