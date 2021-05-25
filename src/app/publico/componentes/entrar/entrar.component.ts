@@ -46,7 +46,7 @@ export class EntrarComponent implements OnInit {
         this.router.navigate(['/conta']);
       },
       ({ error }) => {
-        Mensagens.erro(error);
+        Mensagens.erro('Credênciais inválidas', true, 2000);
         this.loading = false;
       }
     );
