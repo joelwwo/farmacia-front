@@ -1,12 +1,26 @@
-<div class="nome">{{ celular?.description }}</div>
-<div class="nome">{{ celular?.number }}</div>
+<div class="box-celular">
+  <div>
+    <div class="descricao">{{ celular?.description }}</div>
+    <span>
+      {{ celular.number || "" | mask: "(00) 0 0000-0000" }}
+    </span>
+  </div>
+  <!-- Ligar -->
+  <a [href]="'tel:' + celular.number" [title]="'Ligar para ' + celular.number">
+    <i class="fas fa-phone-square-alt"></i>
+  </a>
+  <button class="botao-editar" (click)="abrirModal()" title="Alterar contato">
+    <i class="fas fa-pencil-alt"></i>
+  </button>
+  <button
+    class="botao-remover"
+    (click)="removerAlert()"
+    title="Remover contato"
+  >
+    <i class="fas fa-trash"></i>
+  </button>
+</div>
 
-<button (click)="abrirModal()">Editar celular</button>
-<app-button
-  [loading]="loading"
-  [label]="'Remover'"
-  (click)="removerAlert()"
-></app-button>
 <app-modal *ngIf="mostrarModal">
   <button (click)="fecharModal()" class="btn-fechar">x</button>
   <app-form-celular

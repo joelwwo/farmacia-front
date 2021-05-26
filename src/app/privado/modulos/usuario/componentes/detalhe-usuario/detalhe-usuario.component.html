@@ -5,25 +5,18 @@
       <i class="fas fa-chevron-left"></i> Voltar
     </button>
   </div>
-  <span [ngClass]="usuario?.active ? 'ativo' : 'desativado'" class="status">
-    {{ usuario?.active ? "Ativo(a)" : "Desativado(a)" }}
-  </span>
-  <h1>{{ usuario?.name }}</h1>
-  <div>{{ usuario?.email }}</div>
-  <div *ngIf="usuario?.cpf">
-    CPF: {{ usuario?.cpf || "" | mask: "000.000.000-00" }}
-  </div>
-  <div *ngIf="usuario?.cellphone?.length" class="box-celular">
-    <span>
-      {{ usuario.cellphone[0].number || "" | mask: "(00) 0 0000-0000" }}
-    </span>
-    <a
-      [href]="'tel:' + usuario.cellphone[0].number"
-      [title]="'Ligar para ' + usuario?.name"
-    >
-      Ligar
-      <i class="fas fa-phone-square-alt"></i>
-    </a>
+  <div class="box-corpo">
+    <div class="mb-16">
+      <span [ngClass]="usuario?.active ? 'ativo' : 'desativado'" class="status">
+        {{ usuario?.active ? "Ativo(a)" : "Desativado(a)" }}
+      </span>
+      <h1>{{ usuario?.name }}</h1>
+      <div>{{ usuario?.email }}</div>
+      <div *ngIf="usuario?.cpf" class="cpf">
+        CPF: {{ usuario?.cpf || "" | mask: "000.000.000-00" }}
+      </div>
+    </div>
+    <app-lista-celular [celulares]="usuario.cellphone"></app-lista-celular>
   </div>
   <div class="rodape">
     <button (click)="abrirModal()" title="Alterar dados">Alterar</button>
@@ -40,7 +33,7 @@
 <ng-container *ngIf="usuario">
   <app-lista-endereco [enderecos]="usuario.address" [idUsuario]="usuario.id">
   </app-lista-endereco>
-  <app-lista-celular [celulares]="usuario.cellphone"></app-lista-celular>
+  <!-- <app-lista-celular [celulares]="usuario.cellphone"></app-lista-celular> -->
 </ng-container>
 
 <app-modal *ngIf="mostrarModal">

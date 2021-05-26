@@ -1,14 +1,14 @@
-<div class="endereco-cabecalho">
-  <h2>Contato(s)</h2>
+<div class="cabecalho">
+  <h3 *ngIf="celulares?.length">
+    {{ celulares?.length == 1 ? "Contato" : "Contatos" }}
+  </h3>
   <button (click)="abrirModal()">Cadastrar celular</button>
 </div>
-<div class="box-endereco">
-  <app-detalhe-celular
-    *ngFor="let celular of celulares"
-    [celular]="celular"
-    (idCelular)="removerItem($event)"
-  ></app-detalhe-celular>
-</div>
+<app-detalhe-celular
+  *ngFor="let celular of celulares"
+  [celular]="celular"
+  (idCelular)="removerItem($event)"
+></app-detalhe-celular>
 
 <app-modal *ngIf="mostrarModal">
   <button (click)="fecharModal()" class="btn-fechar">x</button>
