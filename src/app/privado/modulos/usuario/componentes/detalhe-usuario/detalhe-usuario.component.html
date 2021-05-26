@@ -1,6 +1,36 @@
-<div>{{ usuario?.name }}</div>
-<button (click)="abrirModal()">Alterar</button>
-<button (click)="removerAlert()">Remover</button>
+<div class="container-usuario box">
+  <img src="./assets/imagens/animal.png" [alt]="usuario?.name" />
+  <span [ngClass]="usuario?.active ? 'ativo' : 'desativado'" class="status">
+    {{ usuario?.active ? "Ativo(a)" : "Desativado(a)" }}
+  </span>
+  <h1>{{ usuario?.name }}</h1>
+  <div>{{ usuario?.email }}</div>
+  <div *ngIf="usuario?.cpf">
+    {{ usuario?.cpf || "" | mask: "000.000.000-00" }}
+  </div>
+  <div *ngIf="usuario?.cellphone?.length" class="box-celular">
+    <span>
+      {{ usuario.cellphone[0].number || "" | mask: "(00) 0 0000-0000" }}
+    </span>
+    <a
+      [href]="'tel:+' + usuario.cellphone[0].number"
+      [title]="'Ligar para ' + usuario?.name"
+    >
+      Ligar
+      <i class="fas fa-phone-square-alt"></i>
+    </a>
+  </div>
+  <div class="rodape">
+    <button (click)="abrirModal()" title="Alterar dados">Alterar</button>
+    <button
+      class="outline-danger"
+      (click)="removerAlert()"
+      [title]="'Remover ' + usuario?.name"
+    >
+      Remover
+    </button>
+  </div>
+</div>
 
 <ng-container *ngIf="usuario">
   <app-lista-endereco [enderecos]="usuario.address" [idUsuario]="usuario.id">
