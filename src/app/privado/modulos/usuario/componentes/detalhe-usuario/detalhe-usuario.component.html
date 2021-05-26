@@ -1,19 +1,24 @@
 <div class="container-usuario box">
-  <img src="./assets/imagens/animal.png" [alt]="usuario?.name" />
+  <div class="cabecalho">
+    <img src="./assets/imagens/animal.png" [alt]="usuario?.name" />
+    <button (click)="voltar()" title="Voltar para tela anterior">
+      <i class="fas fa-chevron-left"></i> Voltar
+    </button>
+  </div>
   <span [ngClass]="usuario?.active ? 'ativo' : 'desativado'" class="status">
     {{ usuario?.active ? "Ativo(a)" : "Desativado(a)" }}
   </span>
   <h1>{{ usuario?.name }}</h1>
   <div>{{ usuario?.email }}</div>
   <div *ngIf="usuario?.cpf">
-    {{ usuario?.cpf || "" | mask: "000.000.000-00" }}
+    CPF: {{ usuario?.cpf || "" | mask: "000.000.000-00" }}
   </div>
   <div *ngIf="usuario?.cellphone?.length" class="box-celular">
     <span>
       {{ usuario.cellphone[0].number || "" | mask: "(00) 0 0000-0000" }}
     </span>
     <a
-      [href]="'tel:+' + usuario.cellphone[0].number"
+      [href]="'tel:' + usuario.cellphone[0].number"
       [title]="'Ligar para ' + usuario?.name"
     >
       Ligar
