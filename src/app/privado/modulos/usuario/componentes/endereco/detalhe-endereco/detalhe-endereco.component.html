@@ -1,19 +1,22 @@
-<div class="nome">{{ endereco?.name }}</div>
-<span class="atributo">CEP: </span>{{ endereco?.cep }}
-<span class="atributo">Estado: </span>{{ endereco?.state }}
-<span class="atributo">Cidade: </span>{{ endereco?.city }}
-<span class="atributo">Bairro: </span>{{ endereco?.neighborhood }}
-<span class="atributo">Endereço: </span>{{ endereco?.publicPlace }}
-<span class="atributo">Detalhes: </span>{{ endereco?.details }}
-<span class="atributo">Localização: </span>{{ endereco?.location }}
-<div></div>
+<div class="box-endereco">
+  <div class="nome">{{ endereco?.name }}</div>
+  <div><span class="atributo">CEP: </span>{{ endereco?.cep }}</div>
+  <div><span class="atributo">Estado: </span>{{ endereco?.state }}</div>
+  <div><span class="atributo">Cidade: </span>{{ endereco?.city }}</div>
+  <div><span class="atributo">Bairro: </span>{{ endereco?.neighborhood }}</div>
+  <div><span class="atributo">Endereço: </span>{{ endereco?.publicPlace }}</div>
+  <div><span class="atributo">Detalhes: </span>{{ endereco?.details }}</div>
+  <div><span class="atributo">Localização: </span>{{ endereco?.location }}</div>
 
-<button (click)="abrirModal()">Editar</button>
-<app-button
-  [loading]="loading"
-  [label]="'Remover'"
-  (click)="removerAlert()"
-></app-button>
+  <div class="acoes">
+    <button (click)="abrirModal()">Editar</button>
+    <app-button
+      [loading]="loading"
+      [label]="'Remover'"
+      (click)="removerAlert()"
+    ></app-button>
+  </div>
+</div>
 <app-modal *ngIf="mostrarModal">
   <button (click)="fecharModal()" class="btn-fechar">x</button>
   <app-form-endereco
