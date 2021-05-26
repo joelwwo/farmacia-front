@@ -16,7 +16,10 @@
         CPF: {{ usuario?.cpf || "" | mask: "000.000.000-00" }}
       </div>
     </div>
-    <app-lista-celular [celulares]="usuario.cellphone"></app-lista-celular>
+    <app-lista-celular
+      [celulares]="usuario.cellphone"
+      [idUsuario]="usuario.id"
+    ></app-lista-celular>
   </div>
   <div class="rodape">
     <button (click)="abrirModal()" title="Alterar dados">Alterar</button>
