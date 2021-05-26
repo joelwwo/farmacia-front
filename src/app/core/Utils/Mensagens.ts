@@ -6,7 +6,7 @@ export class Mensagens {
       icon: 'success',
       title: 'Sucesso',
       text: mensagem,
-      timer: 2500,
+      timer: 2000,
       timerProgressBar: true,
       toast,
       showConfirmButton: false,
@@ -22,15 +22,18 @@ export class Mensagens {
     return saida + '</ul>';
   }
 
-  static erro(mensagens: any[], toast = true) {
+  static erro(mensagens: any[] | string, toast = true, timer = 0) {
     Swal.fire({
       icon: 'error',
       iconHtml: '',
       position: 'top-end',
       timerProgressBar: true,
+      timer,
       toast,
       title: 'Ocorreu um erro',
-      html: this.formatarMensagens(mensagens),
+      html: Array.isArray(mensagens)
+        ? this.formatarMensagens(mensagens)
+        : `<p>${mensagens}</p>`,
       //showConfirmButton: false,
     });
   }
