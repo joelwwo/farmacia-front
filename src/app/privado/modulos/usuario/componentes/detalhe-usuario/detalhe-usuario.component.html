@@ -11,7 +11,7 @@
         {{ usuario?.active ? "Ativo(a)" : "Desativado(a)" }}
       </span>
       <h1>{{ usuario?.name }}</h1>
-      <div>{{ usuario?.email }}</div>
+      <div class="email">{{ usuario?.email }}</div>
       <div *ngIf="usuario?.cpf" class="cpf">
         CPF: {{ usuario?.cpf || "" | mask: "000.000.000-00" }}
       </div>
