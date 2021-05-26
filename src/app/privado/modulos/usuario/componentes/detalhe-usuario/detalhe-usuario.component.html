@@ -18,7 +18,7 @@
       {{ usuario.cellphone[0].number || "" | mask: "(00) 0 0000-0000" }}
     </span>
     <a
-      [href]="'tel:+' + usuario.cellphone[0].number"
+      [href]="'tel:' + usuario.cellphone[0].number"
       [title]="'Ligar para ' + usuario?.name"
     >
       Ligar
