@@ -1,4 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 import { IUsuario } from '../../../../../core/Models/Usuario';
@@ -14,12 +15,16 @@ export class DetalheUsuarioComponent implements OnInit {
   usuario!: IUsuario;
   mostrarModal = false;
   loading = false;
+  location: Location;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private usuarioService: UsuarioService
-  ) {}
+    private usuarioService: UsuarioService,
+    location: Location
+  ) {
+    this.location = location;
+  }
 
   ngOnInit(): void {
     this.buscarUsuario();
@@ -63,5 +68,8 @@ export class DetalheUsuarioComponent implements OnInit {
       },
       (_) => (this.loading = false)
     );
+  }
+  voltar(): void {
+    this.location.back();
   }
 }
