@@ -10,50 +10,52 @@
   </div>
 </div>
 
-<div *ngIf="usuarios.length" class="overflow-x conteudo">
-  <table id="table">
-    <thead>
-      <tr>
-        <th>Nome | E-mail</th>
-        <th>CPF</th>
-        <th>Ativo</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let usuario of usuarios; index as i">
-        <td [routerLink]="'/conta/usuarios/' + usuario.id">
-          <div class="nome">
-            {{ usuario?.name }}
-          </div>
-          <div class="label">{{ usuario?.email }}</div>
-        </td>
-        <td>
-          <div class="label">
-            {{
-              usuario.cpf
-                ? (usuario.cpf | mask: "999.999.999-99")
-                : "CPF não cadastrado"
-            }}
-          </div>
-        </td>
-        <td>
-          <div class="toggle">
-            <input
-              (change)="alterarStatus(usuario, i)"
-              type="checkbox"
-              [checked]="usuario?.active"
-            />
-          </div>
-        </td>
-        <td>
-          <button [routerLink]="'/conta/usuarios/' + usuario?.id">
-            Detalhes
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="conteudo">
+  <div *ngIf="usuarios.length" class="overflow-x">
+    <table id="table">
+      <thead>
+        <tr>
+          <th>Nome | E-mail</th>
+          <th>CPF</th>
+          <th>Ativo</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios; index as i">
+          <td [routerLink]="'/conta/usuarios/' + usuario.id">
+            <div class="nome">
+              {{ usuario?.name }}
+            </div>
+            <div class="label">{{ usuario?.email }}</div>
+          </td>
+          <td>
+            <div class="label">
+              {{
+                usuario.cpf
+                  ? (usuario.cpf | mask: "999.999.999-99")
+                  : "CPF não cadastrado"
+              }}
+            </div>
+          </td>
+          <td>
+            <div class="toggle">
+              <input
+                (change)="alterarStatus(usuario, i)"
+                type="checkbox"
+                [checked]="usuario?.active"
+              />
+            </div>
+          </td>
+          <td>
+            <button [routerLink]="'/conta/usuarios/' + usuario?.id">
+              Detalhes
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <app-modal *ngIf="mostrarModal">

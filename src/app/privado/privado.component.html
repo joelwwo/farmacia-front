@@ -4,7 +4,8 @@
       Início <i class="fas fa-house-user"></i>
     </div>
     <div>
-      Olá, {{ usuarioLogado?.name }} <button (click)="sair()">Sair</button>
+      Olá, {{ usuarioLogado?.name?.split(" ")[0] }}
+      <button (click)="sair()">Sair</button>
     </div>
   </div>
   <div class="root">
