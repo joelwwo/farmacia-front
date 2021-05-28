@@ -1,15 +1,16 @@
-<div class="box">
-  <input
-    #termo
-    (input)="pesquisa(termo.value)"
-    type="search"
-    placeholder="Pesquisar cliente"
-  />
-  <!-- <button routerLink="formulario" class="outline-success">Cadastrar</button> -->
-  <button (click)="abrirModal()" class="outline-success">Cadastrar</button>
+<div class="box-header">
+  <div class="box">
+    <input
+      #termo
+      (input)="pesquisa(termo.value)"
+      type="search"
+      placeholder="Pesquisar cliente"
+    />
+    <button (click)="abrirModal()" class="outline-success">Cadastrar</button>
+  </div>
 </div>
 
-<div *ngIf="usuarios.length" class="overflow-x">
+<div *ngIf="usuarios.length" class="overflow-x conteudo">
   <table id="table">
     <thead>
       <tr>

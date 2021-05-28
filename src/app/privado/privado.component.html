@@ -1,18 +1,12 @@
 <div class="container">
   <div class="menu-topo">
-    <div>Logo</div>
+    <div class="inicio" routerLink="/conta/usuarios">
+      Início <i class="fas fa-house-user"></i>
+    </div>
     <div>
       Olá, {{ usuarioLogado?.name }} <button (click)="sair()">Sair</button>
     </div>
   </div>
-  <!-- <div class="menu-lateral">
-    <div routerLink="/conta/usuarios" routerLinkActive="active" class="link">
-      Clientes
-    </div>
-    <div routerLink="/conta/vendas" routerLinkActive="active" class="link">
-      Vendas
-    </div>
-  </div> -->
   <div class="root">
     <div>
       <router-outlet></router-outlet>
