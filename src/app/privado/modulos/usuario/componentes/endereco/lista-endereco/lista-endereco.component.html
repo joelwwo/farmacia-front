@@ -3,20 +3,15 @@
     {{ enderecos?.length == 1 ? "Endereço" : "Endereços" }}
   </h3>
   <h2 *ngIf="!enderecos?.length">Nenhum endereço cadastrado</h2>
-  <button class="outline-primary" (click)="abrirModal()">
+  <button
+    title="Cadastrar endereço"
+    class="outline-primary"
+    (click)="abrirModal()"
+  >
     Cadastrar endereço
   </button>
 </div>
-<!-- <div *ngIf="enderecos?.length" class="primeiro-endereco">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15547.552864150095!2d-48.4050182!3d-13.0427867!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa2a912adf57af9da!2sDendiCasa%20Magazine!5e0!3m2!1spt-BR!2sbr!4v1622030528579!5m2!1spt-BR!2sbr"
-    width="600"
-    height="450"
-    style="border: 0"
-    allowfullscreen=""
-    loading="lazy"
-  ></iframe>
-</div> -->
+
 <div class="box-endereco">
   <app-detalhe-endereco
     *ngFor="let endereco of enderecos"

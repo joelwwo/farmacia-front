@@ -10,6 +10,8 @@ import { CustomCurrencyMaskConfig } from '../core/Models/ConfMascara';
 /* Pipe(s) */
 import { ValorMoedaPipe } from './pipes/valor-moeda.pipe';
 import { TipoUsuarioPipe } from './pipes/tipo-usuario.pipe';
+import { SafeURLPipe } from './pipes/safeURL.pipe';
+import { SafeHTMLPipe } from './pipes/safeHTML.pipe';
 
 // componentes
 import { ModalComponent } from './components/modal/modal.component';
@@ -24,6 +26,8 @@ import { ButtonComponent } from './components/modal/button/button.component';
     /* Pipe(s) */
     ValorMoedaPipe,
     TipoUsuarioPipe,
+    SafeHTMLPipe,
+    SafeURLPipe,
   ],
   imports: [
     CommonModule,
@@ -45,6 +49,8 @@ import { ButtonComponent } from './components/modal/button/button.component';
     /* Pipe(s) */
     ValorMoedaPipe,
     TipoUsuarioPipe,
+    SafeHTMLPipe,
+    SafeURLPipe,
   ],
   providers: [
     { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
