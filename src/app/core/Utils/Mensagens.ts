@@ -34,7 +34,7 @@ export class Mensagens {
       html: Array.isArray(mensagens)
         ? this.formatarMensagens(mensagens)
         : `<p>${mensagens}</p>`,
-      //showConfirmButton: false,
+      showConfirmButton: timer ? false : true,
     });
   }
 }
