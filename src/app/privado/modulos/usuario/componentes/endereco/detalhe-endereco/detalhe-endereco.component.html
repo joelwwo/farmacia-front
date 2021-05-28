@@ -1,18 +1,30 @@
 <div class="box-endereco">
   <div class="nome">{{ endereco?.name }}</div>
-  <div *ngIf="endereco.cep">CEP: {{ endereco?.cep }}</div>
-  <div *ngIf="endereco.neighborhood">Bairro: {{ endereco?.neighborhood }}</div>
-  <div *ngIf="endereco.publicPlace">Endereço: {{ endereco?.publicPlace }}</div>
-  <div *ngIf="endereco.details">Detalhes: {{ endereco?.details }}</div>
-  <div *ngIf="endereco.location">Localização: {{ endereco?.location }}</div>
+  <div *ngIf="endereco.cep"><span>CEP: </span>{{ endereco?.cep }}</div>
+  <div *ngIf="endereco.neighborhood">
+    <span>Bairro: </span>{{ endereco?.neighborhood }}
+  </div>
+  <div *ngIf="endereco.publicPlace">
+    <span>Endereço: </span>{{ endereco?.publicPlace }}
+  </div>
+  <div *ngIf="endereco.details">
+    <span>Detalhes: </span>{{ endereco?.details }}
+  </div>
+  <div *ngIf="endereco.location">
+    <a
+      class="linkMapa"
+      [href]="endereco?.location"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i class="fas fa-map-marker-alt"></i>
+      <span> Abrir no Google Maps</span>
+    </a>
+  </div>
 
   <div class="acoes">
-    <button (click)="abrirModal()">Editar</button>
-    <app-button
-      [loading]="loading"
-      [label]="'Remover'"
-      (click)="removerAlert()"
-    ></app-button>
+    <button class="outline-primary" (click)="abrirModal()">Editar</button>
+    <button class="outline-danger" (click)="removerAlert()">Remover</button>
   </div>
 </div>
 <app-modal *ngIf="mostrarModal">
