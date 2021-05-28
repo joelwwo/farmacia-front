@@ -1,12 +1,10 @@
 <div class="box-endereco">
   <div class="nome">{{ endereco?.name }}</div>
-  <div><span class="atributo">CEP: </span>{{ endereco?.cep }}</div>
-  <div><span class="atributo">Estado: </span>{{ endereco?.state }}</div>
-  <div><span class="atributo">Cidade: </span>{{ endereco?.city }}</div>
-  <div><span class="atributo">Bairro: </span>{{ endereco?.neighborhood }}</div>
-  <div><span class="atributo">Endereço: </span>{{ endereco?.publicPlace }}</div>
-  <div><span class="atributo">Detalhes: </span>{{ endereco?.details }}</div>
-  <div><span class="atributo">Localização: </span>{{ endereco?.location }}</div>
+  <div *ngIf="endereco.cep">CEP: {{ endereco?.cep }}</div>
+  <div *ngIf="endereco.neighborhood">Bairro: {{ endereco?.neighborhood }}</div>
+  <div *ngIf="endereco.publicPlace">Endereço: {{ endereco?.publicPlace }}</div>
+  <div *ngIf="endereco.details">Detalhes: {{ endereco?.details }}</div>
+  <div *ngIf="endereco.location">Localização: {{ endereco?.location }}</div>
 
   <div class="acoes">
     <button (click)="abrirModal()">Editar</button>
