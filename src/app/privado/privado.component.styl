@@ -6,8 +6,7 @@
   display grid
   background-color marca1
   grid-template-rows 50px 1fr
-  grid-auto-columns 250px 1fr
-  grid-template-areas "menu-topo menu-topo" "menu-lateral root"
+  grid-template-areas "menu-topo" "root"
 
 
 .menu-topo
@@ -49,5 +48,4 @@
 @media only screen and (max-width 767px)
   .container
     grid-template-rows 50px auto 1fr
-    grid-auto-columns 1fr 1fr
-    grid-template-areas "menu-topo" "menu-lateral" "root"
+    grid-template-areas "menu-topo" "root"
