@@ -16,6 +16,7 @@ export class ListaUsuariosComponent implements OnInit {
   usuarios: IUsuario[] = [];
   private termoBusca = new Subject<string>();
   mostrarModal = false;
+  loading = false;
 
   constructor(private usuarioService: UsuarioService) {}
 
@@ -25,9 +26,14 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   buscarUsuarios(): void {
-    this.usuarioService
-      .buscarUsuarios()
-      .subscribe((usuarios) => (this.usuarios = usuarios));
+    this.loading = true;
+    this.usuarioService.buscarUsuarios().subscribe(
+      (usuarios) => {
+        this.usuarios = usuarios;
+        this.loading = false;
+      },
+      () => (this.loading = false)
+    );
   }
 
   pesquisa(termo: string): void {

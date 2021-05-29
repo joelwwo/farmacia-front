@@ -1,6 +1,10 @@
 <form [formGroup]="formEndereco" (ngSubmit)="orquestarAcao()">
   <div>
-    <input formControlName="name" type="text" placeholder="Nome" />
+    <input
+      formControlName="name"
+      type="text"
+      placeholder="Nome, por exemplo: Casa da mãe"
+    />
     <small appMensagensErrosForms [control]="formEndereco.get('name')"></small>
   </div>
   <div>
@@ -13,7 +17,11 @@
     <small appMensagensErrosForms [control]="formEndereco.get('cep')"></small>
   </div>
   <div>
-    <input formControlName="publicPlace" type="text" placeholder="Endereço" />
+    <input
+      formControlName="publicPlace"
+      type="text"
+      placeholder="Lote, rua ou alameda"
+    />
     <small
       appMensagensErrosForms
       [control]="formEndereco.get('publicPlace')"
@@ -23,7 +31,7 @@
     <input
       formControlName="neighborhood"
       type="text"
-      placeholder="Chácara, lote, bairro etc"
+      placeholder="Bairro, Setor, Arso etc"
     />
     <small
       appMensagensErrosForms
@@ -34,7 +42,7 @@
     <input
       formControlName="details"
       type="text"
-      placeholder="Ponto de referência"
+      placeholder="Ponto de referência ou detalhes"
     />
     <small
       appMensagensErrosForms

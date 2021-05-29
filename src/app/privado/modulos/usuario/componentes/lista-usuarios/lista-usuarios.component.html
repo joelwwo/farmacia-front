@@ -1,16 +1,51 @@
 <div class="box-header">
-  <div class="box">
+  <div class="header">
     <input
       #termo
       (input)="pesquisa(termo.value)"
       type="search"
-      placeholder="Pesquisar cliente"
+      placeholder="Pesquisar por nome"
     />
     <button (click)="abrirModal()" class="outline-success">Cadastrar</button>
   </div>
 </div>
 
-<div class="conteudo">
+<app-loading [loading]="loading"></app-loading>
+
+<h3 class="text-center" *ngIf="!usuarios?.length && !loading">
+  Nenhum usuário encontrado
+</h3>
+
+<div class="box-usuarios">
+  <div *ngFor="let usuario of usuarios; index as i" class="item-usuario">
+    <div class="imagem">
+      {{ usuario.name?.slice(0, 2) }}
+    </div>
+    <div class="body">
+      <div class="nome">{{ usuario.name }}</div>
+      <div class="email">{{ usuario.email }}</div>
+      <div class="cpf">{{ usuario.cpf }}</div>
+      <app-lista-celular
+        [celulares]="usuario?.cellphone || []"
+        [idUsuario]="usuario.id"
+      ></app-lista-celular>
+    </div>
+    <div class="footer">
+      <div class="toggle">
+        <input
+          (change)="alterarStatus(usuario, i)"
+          type="checkbox"
+          [checked]="usuario?.active"
+        />
+      </div>
+      <div [routerLink]="'/conta/usuarios/' + usuario.id" class="detalhes">
+        Detalhes <i class="far fa-hand-point-right"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="conteudo">
   <div *ngIf="usuarios.length" class="overflow-x">
     <table id="table">
       <thead>
@@ -56,7 +91,7 @@
       </tbody>
     </table>
   </div>
-</div>
+</div> -->
 
 <app-modal *ngIf="mostrarModal">
   <button (click)="fecharModal()" class="btn-fechar">x</button>
