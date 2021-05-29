@@ -10,6 +10,11 @@
   </div>
 </div>
 
+<div class="box-usuarios">
+  <app-loading [loading]="loading"></app-loading>
+  <div class="item-usuario"></div>
+</div>
+
 <div class="conteudo">
   <div *ngIf="usuarios.length" class="overflow-x">
     <table id="table">

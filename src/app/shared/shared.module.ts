@@ -15,7 +15,8 @@ import { SafeHTMLPipe } from './pipes/safeHTML.pipe';
 
 // componentes
 import { ModalComponent } from './components/modal/modal.component';
-import { ButtonComponent } from './components/modal/button/button.component';
+import { ButtonComponent } from './components/button/button.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ButtonComponent } from './components/modal/button/button.component';
     /* Componentes */
     ModalComponent,
     ButtonComponent,
+    LoadingComponent,
     /* Pipe(s) */
     ValorMoedaPipe,
     TipoUsuarioPipe,
@@ -46,6 +48,7 @@ import { ButtonComponent } from './components/modal/button/button.component';
     /* Componentes */
     ModalComponent,
     ButtonComponent,
+    LoadingComponent,
     /* Pipe(s) */
     ValorMoedaPipe,
     TipoUsuarioPipe,
