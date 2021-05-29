@@ -1,20 +1,27 @@
 @import '../../../../../../stylus/cores'
 
 .box-header
+  display flex
+  justify-content center
+  flex-wrap wrap
   position sticky
-  top 16px
+  top 0
   background-color luz
   z-index 1
 
-.box
+.header
   display flex
   justify-content space-between
   flex-wrap wrap
+  width 100vw
   margin 16px
   padding 10px
+  background-color #fff
+  border-radius 9px
   input
     min-width 160px
     max-width 60%
+    //background-color #fff
   input, button
     margin 5px 0
 
