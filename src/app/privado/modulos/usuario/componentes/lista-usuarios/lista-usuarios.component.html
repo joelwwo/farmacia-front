@@ -21,9 +21,15 @@
     <div class="imagem">
       {{ usuario.name?.slice(0, 2) }}
     </div>
-    <div class="nome">{{ usuario.name }}</div>
-    <div class="email">{{ usuario.email }}</div>
-    <div class="cpf">{{ usuario.cpf }}</div>
+    <div class="body">
+      <div class="nome">{{ usuario.name }}</div>
+      <div class="email">{{ usuario.email }}</div>
+      <div class="cpf">{{ usuario.cpf }}</div>
+      <app-lista-celular
+        [celulares]="usuario?.cellphone || []"
+        [idUsuario]="usuario.id"
+      ></app-lista-celular>
+    </div>
     <div class="footer">
       <div class="toggle">
         <input
@@ -33,7 +39,7 @@
         />
       </div>
       <div [routerLink]="'/conta/usuarios/' + usuario.id" class="detalhes">
-        Detalhes
+        Detalhes <i class="far fa-hand-point-right"></i>
       </div>
     </div>
   </div>
