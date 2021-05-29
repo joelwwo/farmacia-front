@@ -18,7 +18,11 @@
 
 <div class="box-usuarios">
   <div *ngFor="let usuario of usuarios; index as i" class="item-usuario">
-    <div class="imagem">
+    <div
+      class="imagem"
+      [title]="usuario?.name"
+      [routerLink]="'/conta/usuarios/' + usuario.id"
+    >
       {{ usuario.name?.slice(0, 2) }}
     </div>
     <div class="body">
