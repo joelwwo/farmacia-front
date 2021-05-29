@@ -18,7 +18,7 @@
     </div>
     <app-lista-celular
       [celulares]="usuario?.cellphone || []"
-      [idUsuario]="usuario.id"
+      [idUsuario]="usuario?.id || ''"
     ></app-lista-celular>
   </div>
   <div class="rodape">
@@ -37,7 +37,7 @@
   <ng-container *ngIf="usuario">
     <app-lista-endereco
       [enderecos]="usuario.address || []"
-      [idUsuario]="usuario.id"
+      [idUsuario]="usuario?.id || ''"
     >
     </app-lista-endereco>
   </ng-container>
