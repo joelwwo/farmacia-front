@@ -25,10 +25,12 @@
       <div class="nome">{{ usuario.name }}</div>
       <div class="email">{{ usuario.email }}</div>
       <div class="cpf">{{ usuario.cpf }}</div>
-      <app-lista-celular
-        [celulares]="usuario?.cellphone || []"
-        [idUsuario]="usuario.id"
-      ></app-lista-celular>
+      <div>
+        <app-lista-celular
+          [celulares]="usuario?.cellphone || []"
+          [idUsuario]="usuario.id"
+        ></app-lista-celular>
+      </div>
     </div>
     <div class="footer">
       <div class="toggle">

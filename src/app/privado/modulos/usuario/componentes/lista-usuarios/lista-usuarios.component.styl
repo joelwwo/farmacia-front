@@ -43,10 +43,14 @@
 .item-usuario
   display flex
   flex-direction column
-  justify-content space-evenly
+  justify-content space-between
   padding 1em
   background-color #fff
   border-radius 9px
+  & > div
+    margin-bottom 1em
+    :last-child
+      margin-bottom 0
   .imagem
     display grid
     place-content center
@@ -60,6 +64,8 @@
     padding 2px
   .email
     word-wrap break-word
+  .cpf
+    margin-bottom 1em
   .footer
     display flex
     justify-content space-between
