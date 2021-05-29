@@ -1,47 +1,52 @@
-<div class="container-usuario box">
-  <div class="cabecalho">
-    <img src="./assets/imagens/animal.png" [alt]="usuario?.name" />
-    <button (click)="voltar()" title="Voltar para tela anterior">
-      <i class="fas fa-chevron-left"></i> Voltar
-    </button>
-  </div>
-  <div class="box-corpo">
-    <div class="mb-16">
-      <span [ngClass]="usuario?.active ? 'ativo' : 'desativado'" class="status">
-        {{ usuario?.active ? "Ativo(a)" : "Desativado(a)" }}
-      </span>
-      <h1>{{ usuario?.name }}</h1>
-      <div class="email">{{ usuario?.email }}</div>
-      <div *ngIf="usuario?.cpf" class="cpf">
-        CPF: {{ usuario?.cpf || "" | mask: "000.000.000-00" }}
-      </div>
+<main>
+  <div class="container-usuario box">
+    <div class="cabecalho">
+      <img src="./assets/imagens/animal.png" [alt]="usuario?.name" />
+      <button (click)="voltar()" title="Voltar para tela anterior">
+        <i class="fas fa-chevron-left"></i> Voltar
+      </button>
     </div>
-    <app-lista-celular
-      [celulares]="usuario?.cellphone || []"
-      [idUsuario]="usuario?.id || ''"
-    ></app-lista-celular>
+    <div class="box-corpo">
+      <div class="mb-16">
+        <span
+          [ngClass]="usuario?.active ? 'ativo' : 'desativado'"
+          class="status"
+        >
+          {{ usuario?.active ? "Ativo(a)" : "Desativado(a)" }}
+        </span>
+        <h1>{{ usuario?.name }}</h1>
+        <div class="email">{{ usuario?.email }}</div>
+        <div *ngIf="usuario?.cpf" class="cpf">
+          CPF: {{ usuario?.cpf || "" | mask: "000.000.000-00" }}
+        </div>
+      </div>
+      <app-lista-celular
+        [celulares]="usuario?.cellphone || []"
+        [idUsuario]="usuario?.id || ''"
+      ></app-lista-celular>
+    </div>
+    <div class="rodape">
+      <button (click)="abrirModal()" title="Alterar dados">Alterar</button>
+      <button
+        class="outline-danger"
+        (click)="removerAlert()"
+        [title]="'Remover ' + usuario?.name"
+      >
+        Remover
+      </button>
+    </div>
   </div>
-  <div class="rodape">
-    <button (click)="abrirModal()" title="Alterar dados">Alterar</button>
-    <button
-      class="outline-danger"
-      (click)="removerAlert()"
-      [title]="'Remover ' + usuario?.name"
-    >
-      Remover
-    </button>
-  </div>
-</div>
 
-<div class="enderecos">
-  <ng-container *ngIf="usuario">
-    <app-lista-endereco
-      [enderecos]="usuario.address || []"
-      [idUsuario]="usuario?.id || ''"
-    >
-    </app-lista-endereco>
-  </ng-container>
-</div>
+  <div class="enderecos">
+    <ng-container *ngIf="usuario">
+      <app-lista-endereco
+        [enderecos]="usuario.address || []"
+        [idUsuario]="usuario?.id || ''"
+      >
+      </app-lista-endereco>
+    </ng-container>
+  </div>
+</main>
 
 <app-modal *ngIf="mostrarModal">
   <button (click)="fecharModal()" class="btn-fechar">x</button>
