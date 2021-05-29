@@ -17,7 +17,7 @@
       </div>
     </div>
     <app-lista-celular
-      [celulares]="usuario.cellphone"
+      [celulares]="usuario?.cellphone || []"
       [idUsuario]="usuario.id"
     ></app-lista-celular>
   </div>
@@ -35,7 +35,10 @@
 
 <div class="enderecos">
   <ng-container *ngIf="usuario">
-    <app-lista-endereco [enderecos]="usuario.address" [idUsuario]="usuario.id">
+    <app-lista-endereco
+      [enderecos]="usuario.address || []"
+      [idUsuario]="usuario.id"
+    >
     </app-lista-endereco>
   </ng-container>
 </div>

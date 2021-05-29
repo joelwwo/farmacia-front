@@ -30,3 +30,36 @@
   position sticky!important
   top 166px
   overflow-y auto
+
+/* Novo */
+.box-usuarios
+  width 100%
+  display grid
+  grid-template-columns repeat(auto-fill, minmax(280px, 1fr))
+  grid-gap 10px
+  place-content center
+  padding 1em
+
+.item-usuario
+  display flex
+  flex-direction column
+  justify-content space-evenly
+  padding 1em
+  background-color #fff
+  border-radius 9px
+  .imagem
+    display grid
+    place-content center
+    width 75px
+    height 75px
+    border-radius 50%
+    background-color #1abc9c
+    color #fff
+    font-size 40px
+    text-transform uppercase
+    padding 2px
+  .email
+    word-wrap break-word
+  .footer
+    display flex
+    justify-content space-between

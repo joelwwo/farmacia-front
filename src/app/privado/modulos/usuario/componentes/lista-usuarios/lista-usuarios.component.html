@@ -17,18 +17,25 @@
 </h3>
 
 <div class="box-usuarios">
-  <div
-    *ngFor="let usuario of usuarios; index as i"
-    class="item-usuario"
-    [routerLink]="'/conta/usuarios/' + usuario.id"
-  >
+  <div *ngFor="let usuario of usuarios; index as i" class="item-usuario">
     <div class="imagem">
-      {{ usuario.name?.slice(0, 2) }}{{ usuario.name?.slice(1, 3) }}
+      {{ usuario.name?.slice(0, 2) }}
     </div>
     <div class="nome">{{ usuario.name }}</div>
     <div class="email">{{ usuario.email }}</div>
     <div class="cpf">{{ usuario.cpf }}</div>
-    <div class="detalhes"></div>
+    <div class="footer">
+      <div class="toggle">
+        <input
+          (change)="alterarStatus(usuario, i)"
+          type="checkbox"
+          [checked]="usuario?.active"
+        />
+      </div>
+      <div [routerLink]="'/conta/usuarios/' + usuario.id" class="detalhes">
+        Detalhes
+      </div>
+    </div>
   </div>
 </div>
 
