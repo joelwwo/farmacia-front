@@ -18,24 +18,27 @@
 
 <div class="box-usuarios">
   <div *ngFor="let usuario of usuarios; index as i" class="item-usuario">
-    <div
-      class="imagem"
-      [title]="usuario?.name"
-      [routerLink]="'/conta/usuarios/' + usuario.id"
-    >
-      {{ usuario.name?.slice(0, 2) }}
-    </div>
-    <div class="body">
-      <div class="nome">{{ usuario.name }}</div>
-      <div class="email">{{ usuario.email }}</div>
-      <div class="cpf">{{ usuario.cpf }}</div>
+    <div class="informacoes">
+      <div
+        class="imagem"
+        [title]="usuario?.name"
+        [routerLink]="'/conta/usuarios/' + usuario.id"
+      >
+        {{ usuario.name?.slice(0, 2) }}
+      </div>
       <div>
-        <app-lista-celular
-          [celulares]="usuario?.cellphone || []"
-          [idUsuario]="usuario.id"
-        ></app-lista-celular>
+        <div class="nome">{{ usuario.name }}</div>
+        <div class="email">{{ usuario.email }}</div>
+        <div class="cpf">{{ usuario.cpf }}</div>
       </div>
     </div>
+    <div class="body">
+      <app-lista-celular
+        [celulares]="usuario?.cellphone || []"
+        [idUsuario]="usuario.id"
+      ></app-lista-celular>
+    </div>
+
     <div class="footer">
       <div class="toggle">
         <input

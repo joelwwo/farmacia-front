@@ -63,12 +63,16 @@
     text-transform uppercase
     padding 2px
     cursor pointer
-  .email
-    word-wrap break-word
-  .cpf
+  .informacoes
     margin-bottom 1em
-  .footer
+  .informacoes, .footer
     display flex
+    justify-content space-between
+  .cpf, .nome, .email
+    text-overflow ellipsis
+    white-space nowrap
+    overflow hidden
+  .footer
     justify-content space-between
     align-items center
     .detalhes
