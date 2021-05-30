@@ -46,11 +46,8 @@
     :last-child
       margin-bottom 0
   .informacoes
+    display flex
     margin-bottom 1em
-    .cpf, .nome, .email
-      text-overflow ellipsis
-      white-space nowrap
-      overflow hidden
     .imagem
       display grid
       place-content center
@@ -61,12 +58,12 @@
       color #fff
       font-size 40px
       text-transform uppercase
-      padding 2px
-    cursor pointer
-  .informacoes, .footer
-    display flex
-    justify-content space-between
+      cursor pointer
+      margin-right 16px
+    .texto
+      width calc(100% - 90px)
   .footer
+    display flex
     justify-content space-between
     align-items center
     .detalhes
@@ -75,3 +72,8 @@
       color #fff
       background-color #1abc9c
       border-radius 9px
+
+.email, .nome
+  text-overflow ellipsis
+  white-space nowrap
+  overflow hidden

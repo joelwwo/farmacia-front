@@ -26,10 +26,10 @@
       >
         {{ usuario.name?.slice(0, 2) }}
       </div>
-      <div>
+      <div class="texto">
         <div class="nome">{{ usuario.name }}</div>
         <div class="email">{{ usuario.email }}</div>
-        <div class="cpf">{{ usuario.cpf }}</div>
+        <div class="cpf">{{ usuario?.cpf || "" | mask: "000.000.000-00" }}</div>
       </div>
     </div>
     <div class="body">
