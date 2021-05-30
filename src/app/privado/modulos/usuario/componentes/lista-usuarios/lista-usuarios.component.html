@@ -18,24 +18,27 @@
 
 <div class="box-usuarios">
   <div *ngFor="let usuario of usuarios; index as i" class="item-usuario">
-    <div
-      class="imagem"
-      [title]="usuario?.name"
-      [routerLink]="'/conta/usuarios/' + usuario.id"
-    >
-      {{ usuario.name?.slice(0, 2) }}
-    </div>
-    <div class="body">
-      <div class="nome">{{ usuario.name }}</div>
-      <div class="email">{{ usuario.email }}</div>
-      <div class="cpf">{{ usuario.cpf }}</div>
-      <div>
-        <app-lista-celular
-          [celulares]="usuario?.cellphone || []"
-          [idUsuario]="usuario.id"
-        ></app-lista-celular>
+    <div class="informacoes">
+      <div
+        class="imagem"
+        [title]="usuario?.name"
+        [routerLink]="'/conta/usuarios/' + usuario.id"
+      >
+        {{ usuario.name?.slice(0, 2) }}
+      </div>
+      <div class="texto">
+        <div class="nome">{{ usuario.name }}</div>
+        <div class="email">{{ usuario.email }}</div>
+        <div class="cpf">{{ usuario?.cpf || "" | mask: "000.000.000-00" }}</div>
       </div>
     </div>
+    <div class="body">
+      <app-lista-celular
+        [celulares]="usuario?.cellphone || []"
+        [idUsuario]="usuario.id"
+      ></app-lista-celular>
+    </div>
+
     <div class="footer">
       <div class="toggle">
         <input
@@ -50,54 +53,6 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="conteudo">
-  <div *ngIf="usuarios.length" class="overflow-x">
-    <table id="table">
-      <thead>
-        <tr>
-          <th>Nome | E-mail</th>
-          <th>CPF</th>
-          <th>Ativo</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let usuario of usuarios; index as i">
-          <td [routerLink]="'/conta/usuarios/' + usuario.id">
-            <div class="nome">
-              {{ usuario?.name }}
-            </div>
-            <div class="label">{{ usuario?.email }}</div>
-          </td>
-          <td>
-            <div class="label">
-              {{
-                usuario.cpf
-                  ? (usuario.cpf | mask: "999.999.999-99")
-                  : "CPF não cadastrado"
-              }}
-            </div>
-          </td>
-          <td>
-            <div class="toggle">
-              <input
-                (change)="alterarStatus(usuario, i)"
-                type="checkbox"
-                [checked]="usuario?.active"
-              />
-            </div>
-          </td>
-          <td>
-            <button [routerLink]="'/conta/usuarios/' + usuario?.id">
-              Detalhes
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div> -->
 
 <app-modal *ngIf="mostrarModal">
   <button (click)="fecharModal()" class="btn-fechar">x</button>

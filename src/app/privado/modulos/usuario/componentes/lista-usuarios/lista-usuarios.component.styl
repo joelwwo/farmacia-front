@@ -25,12 +25,6 @@
   input, button
     margin 5px 0
 
-.conteudo
-  padding 0 1em
-  position sticky!important
-  top 166px
-  overflow-y auto
-
 /* Novo */
 .box-usuarios
   width 100%
@@ -51,22 +45,23 @@
     margin-bottom 1em
     :last-child
       margin-bottom 0
-  .imagem
-    display grid
-    place-content center
-    width 75px
-    height 75px
-    border-radius 50%
-    background-color #022B3A
-    color #fff
-    font-size 40px
-    text-transform uppercase
-    padding 2px
-    cursor pointer
-  .email
-    word-wrap break-word
-  .cpf
+  .informacoes
+    display flex
     margin-bottom 1em
+    .imagem
+      display grid
+      place-content center
+      width 75px
+      height 75px
+      border-radius 50%
+      background-color #022B3A
+      color #fff
+      font-size 40px
+      text-transform uppercase
+      cursor pointer
+      margin-right 16px
+    .texto
+      width calc(100% - 90px)
   .footer
     display flex
     justify-content space-between
@@ -77,3 +72,8 @@
       color #fff
       background-color #1abc9c
       border-radius 9px
+
+.email, .nome
+  text-overflow ellipsis
+  white-space nowrap
+  overflow hidden
